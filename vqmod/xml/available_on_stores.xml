@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>available_on_stores</name>
+    <code>available_on_stores</code>
+    <id>available_on_stores</id>
+    <version>1.0.0</version>
+    <vqmver>2.5.1</vqmver>
+    <author>Basheir Hassan</author>
+
+
+
+
+
+<file path="admin/view/template/catalog/product_form.twig">
+
+        <operation>
+            <search><![CDATA[
+              			<li><a href="#tab-design" data-toggle="tab">{{ tab_design }}</a></li>
+				]]></search>
+            <add position="after"><![CDATA[
+
+            <li><a href="#available_on_stores" data-toggle="tab">Available on Stores</a></li>
+				]]></add>
+        </operation>
+
+
+
+    <operation>
+        <search><![CDATA[
+              			<div class="tab-pane" id="tab-design">
+				]]></search>
+        <add position="before"><![CDATA[
+
+       <div class="tab-pane" id="available_on_stores">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+
+                  </thead>
+                  <tbody>
+                  <tr>
+
+
+                {% for key,val in rows_available_on_stores %}
+
+                    {% if rows_available_on_stores|length == 0 %}
+
+                   <div class="alert alert-danger" role="alert">please Add stores</div>
+
+                    {% endif %}
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-location">{{val.name}}</label>
+                         <div class="col-sm-10">
+                         <input type="text" name="available-on-stores-input[{{val.stores_id}}]" value=" {{rows_available_on_stores_urls[val.stores_id]}}" placeholder="{{val.name}}" id="input-location" class="form-control">
+                        </div>
+                     </div>
+
+                {% endfor %}
+
+
+              </div>
+                  </div>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+            </div>
+
+
+
+
+]]></add>
+    </operation>
+
+
+    </file>
+
+
+
+
+
+    // get Stores
+    <file name="admin/controller/catalog/product.php">
+        <operation error="skip">
+            <search position="after"><![CDATA[getForm()]]></search>
+            <add><![CDATA[
+
+            $this->load->model('extension/module/available_on_stores');
+            $data['rows_available_on_stores'] = $this->model_extension_module_available_on_stores->getStores();
+            $data['rows_available_on_stores_urls'] = $this->model_extension_module_available_on_stores->getStoresUrls();
+            ]]></add>
+        </operation>
+    </file>
+
+
+
+
+    <!--View Defualt-->
+
+    <file path="catalog/view/theme/*/template/product/product.twig">
+        <operation>
+            <search><![CDATA[ {{ footer }} ]]></search>
+
+            <add position="before"><![CDATA[
+
+
+                    <script>
+          $(document).ready(function () {
+
+
+                      setTimeout(function () {
+
+
+                          $.getJSON("index.php?route=extension/module/available_on_stores/getStoreUrls", {product_id: "{{ product_id }}"}, function (json) {
+
+                              if (json.result != false) {
+
+                                  jQuery.each(json.result, function (i, val) {
+
+
+                                      if (json.theme == "journal3" || json.theme == "journal2") {
+                                          JournalTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name);
+                                      }
+
+                                      if (json.theme == "default") {
+                                          defualtTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name);
+                                      }
+
+
+                                  });
+
+
+                              }
+                          });
+
+
+                      }, 3000);
+
+
+                  });
+
+
+                  function JournalTheam(stores_id, url, name) {
+
+
+                      var obj = $("#button-cart").clone();
+                      obj.text(name);
+                      obj.on('click', function () {
+                          $.post("index.php?route=extension/module/available_on_stores", {
+                              product_id: "{{ product_id }}",
+                              stores_id: stores_id
+                          });
+                          obj.removeAttr('disabled');
+
+                          window.open(url, '_blank');
+                      });
+
+                       $("div .button-group-page").prepend(obj);
+                     // obj.insertBefore(".buttons-wrapper");
+                      obj.removeAttr('disabled');
+                  }
+
+
+                  function defualtTheam(stores_id, url, name) {
+                      var obj = $("#button-cart").clone();
+                      obj.text(name);
+                      obj.on('click', function () {
+                          $.post("index.php?route=extension/module/available_on_stores", {
+                              product_id: "{{ product_id }}",
+                              stores_id: stores_id
+                          });
+                          obj.removeAttr('disabled');
+                          window.open(url, '_blank');
+                      });
+
+                      $(".form-group").append(obj);
+                      obj.removeAttr('disabled');
+                  }
+
+
+                    </script>
+
+
+				]]></add>
+        </operation>
+    </file>
+
+
+
+</modification>
