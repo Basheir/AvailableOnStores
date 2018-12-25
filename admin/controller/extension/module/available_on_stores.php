@@ -2,9 +2,9 @@
 
 /**
  * Created by Basheir Hassan.
+ * User: basheir
  * Version 1.0.0
  */
-
 
 
 
@@ -125,6 +125,9 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
 	public function install(){
+		
+		
+		
 		$this->load->model( 'setting/event' );
 		$this->model_setting_event->addEvent( 'available_on_stores_post_add', 'admin/model/catalog/product/addProduct/after', 'extension/module/available_on_stores/addStoresUrlsEvent' );
 		$this->model_setting_event->addEvent( 'available_on_stores_post_edit', 'admin/model/catalog/product/editProduct/after', 'extension/module/available_on_stores/editStoresUrlsEvent' );
@@ -164,7 +167,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
         "
 		);
 		
-		
+	
 		
 		
 		
@@ -264,16 +267,39 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 	}
 
 	function dashboard(){
+		
+		if (isset($this->request->get['page'])) {
+			$page = $this->request->get['page'];
+			
+		} else {
+			$page = 1;
+		}
+		
+		
+		
 		$this->load->model('extension/module/available_on_stores');
-		$data['rows'] = $this->model_extension_module_available_on_stores->getDashboard();
+		$data['rows'] = $this->model_extension_module_available_on_stores->getDashboard($page);
 
+		
+		$total_dashboard =  $this->db->query( "SELECT * FROM  `" . DB_PREFIX . "available_on_stores_dashboard`    ;" )->rows;
+		$data['pagination'] = '';
+		$pagination = new Pagination();
+		$pagination->total = sizeof($total_dashboard);
+		$pagination->page = $page;
+		$pagination->limit = 20;
+		$pagination->text = $this->language->get('text_pagination');
+		$pagination->url = $this->url->link('extension/module/available_on_stores/dashboard', 'product_id=' . $this->request->get['product_id'] .'&user_token=' . $this->session->data['user_token']. '&page={page}');
+		$data['pagination'] = $pagination->render();
+		
+		
+		
+		
 		$this->load->language('extension/module/available_on_stores');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$data['header'] =      $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] =      $this->load->controller('common/footer');
-
-
+			
 
 		$this->response->setOutput($this->load->view('extension/module/available_on_stores_dashboard', $data));
 

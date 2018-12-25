@@ -2,24 +2,19 @@
 {{ column_left }}
 
 
-
-
 <div id="content">
     <div class="page-header">
         <div class="container-fluid">
             <div class="pull-right">
 
 
-            <ul class="breadcrumb">
-                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-                <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb.text }}</a></li>
-                <?php } ?>
-            </ul>
+                <ul class="breadcrumb">
+                    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                    <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb.text }}</a></li>
+                    <?php } ?>
+                </ul>
+            </div>
         </div>
-    </div>
-
-
-
 
 
         <div class="container-fluid">
@@ -34,48 +29,47 @@
                     <div id="status"></div>
 
 
+                    <div class="container">
+                        <div id="alertJson" role="alert"></div>
 
-                 <div class="container">
-                     <div id="alertJson" role="alert"></div>
+                        <table id="dateStore" class="table table-bordered table-hover" style="width:100%">
+                            <tr>
+                                <th>{{ text_row_id }}</th>
+                                <th>{{ text_row_url }}</th>
+                            </tr>
 
-                     <table id="dateStore" class="table table-bordered table-hover" style="width:100%">
-                         <tr>
-                             <th>{{ text_row_id }}</th>
-                             <th>{{ text_row_url }}</th>
-                         </tr>
-
-                         {% for row in rows %}
-                             <tr>
-                                 <td>{{ rows.product_id }}
-
-
-                                <div class="row">
-
-                                 {% for row_store in row %}
-                                     <div class="col-sm-5">{{row_store.store_name}} </div>
-                                     <div class="col-sm-5"><span class="badge">{{row_store.clicekd}}</span></div>
-                                     
-                                  {% endfor %}
-
-                                  </div>
-                                 </td>
-                                 <td><a href="{{row.url}}">{{row.name}} </a></td>
-                             </tr>
-                         {% endfor %}
+                            {% for row in rows %}
+                                <tr>
+                                    <td>{{ rows.product_id }}
 
 
+                                        <div class="row">
 
-                     </table>
+                                            {% for row_store in row %}
+                                                <div class="col-sm-5">{{ row_store.store_name }} </div>
+                                                <div class="col-sm-5"><span class="badge">{{ row_store.clicekd }}</span>
+                                                </div>
 
-                 </div>
+                                            {% endfor %}
+
+                                        </div>
+                                    </td>
+                                    <td><a href="{{ row.url }}">{{ row.name }} </a></td>
+                                </tr>
+                            {% endfor %}
 
 
+                        </table>
+
+                    </div>
 
 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination">{{ pagination }}</div>
 
-     </div>
 
-
-
-
-    {{ footer }}
+{{ footer }}
