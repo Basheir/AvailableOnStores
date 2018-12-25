@@ -18,4 +18,4 @@ openCart Version 3.0.xxx
 
 اضافة المتاجر من لوحة التحكم
 
-<img src="./screenshot/s1.png" alt="Smiley face" height="100" width="100">
+<img src="./screenshot/s1.png" alt="Add Stores" >
