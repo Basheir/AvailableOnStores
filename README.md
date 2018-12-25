@@ -16,6 +16,8 @@ openCart Version 3.0.xxx
 
 
 عرض الازرار
+--------------------
+
 <img src="./screenshot/1.png" alt="show Stores" >
 
 
@@ -24,13 +26,13 @@ openCart Version 3.0.xxx
 
 
 اضافة المتاجر من لوحة التحكم
-
+-----------------------
 <img src="./screenshot/2.png" alt="Add Stores" >
 
 
 
 اضافة الروابط للمنتج
-
+----------------------
 <img src="./screenshot/3.png" alt="Add Stores" >
 
 
