@@ -14,5 +14,4 @@ openCart Version 3.0.xxx
 <li> نون  </li>
 <li> امازون  </li>
 <li> ايباي  </li>
-
 </ul>
