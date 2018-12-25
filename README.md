@@ -13,3 +13,9 @@ openCart Version 3.0.xxx
 <li> امازون  </li>
 <li> ايباي  </li>
 </ul>
+
+
+
+اضافة المتاجر من لوحة التحكم
+
+<img src="./screenshot/s1.png" alt="Smiley face" height="100" width="100">
