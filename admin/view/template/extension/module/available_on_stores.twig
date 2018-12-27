@@ -135,6 +135,9 @@
 
 
      </div>
+     </div>
+     </div>
+
 
 
     </form>
@@ -147,36 +150,19 @@
 
             // getStoresUrl();
 
+
+            $('#available_on_stores_stores_name').keypress(function (e) {
+                if (e.which == 13) {
+
+                    addStore();
+                    return false;    //<---- Add this line
+                }
+            });
+
+
             $("#add_stores").click(function () {
 
-
-                if ($("#available_on_stores_stores_name").val() == ""){
-
-                    alert('Empty');
-                    return;
-                }
-
-               var btn =  $(this).button('loading');
-                $.post( "{{ add_stores }}", { available_on_stores_stores_name: $("#available_on_stores_stores_name").val() },function( data ) {
-                    console.log(data)
-                    if (data.result ){
-
-                        $(btn).button('reset');
-
-                        $("#dateStore").find('tbody')
-                            .append($('<tr>')
-                                .append($('<td>').text(data.lastID) )
-                                .append($('<td>').text(data.name) )
-                                .append($('<td>').text('Now') )
-                                .append($('<td>').html(' <td><button onclick="deleteStores('+data.lastID+',this)" type="button" class="btn btn-danger Del" aria-label="Left Align"><span class="fa fa-trash-o" aria-hidden="true"></span></button></td>\n') )
-                         );
-                        $("#available_on_stores_stores_name").val('');
-                    }
-
-
-
-                },'json');
-
+                addStore();
             });
 
 
@@ -212,29 +198,81 @@
 
 
 
-        function deleteStores(id,btn) {
 
+        function addStore() {
+            if ($("#available_on_stores_stores_name").val() == ""){
+                alert('{{ text_empty }}');
+                return false;
+            }
 
+            var btn =  $("#add_stores").button('loading');
+            $.post( "{{ add_stores }}", { available_on_stores_stores_name: $("#available_on_stores_stores_name").val() },function( data ) {
+                console.log(data)
+                if (data.result ){
 
-                var answer=confirm('{{ entry_delete_messag_text }}');
-                if(!answer){
-                    return ;
+                    $(btn).button('reset');
+
+                    $("#dateStore").find('tbody')
+                        .append($('<tr>')
+                            .append($('<td>').text(data.lastID) )
+                            .append($('<td>').text(data.name) )
+                            .append($('<td>').text('Now') )
+                            .append($('<td>').html(' <td><button onclick="deleteStores('+data.lastID+',this)" type="button" class="btn btn-danger Del" aria-label="Left Align"><span class="fa fa-trash-o" aria-hidden="true"></span></button></td>\n') )
+                        );
+                    $("#available_on_stores_stores_name").val('');
                 }
 
+
+
+            },'json');
+
+            return false;
+        }
+
+        function deleteStores(id,btn) {
 
 
             $(btn).button('loading');
 
-            $.post( "{{ delete_stores }}", { id: id },function( data ) {
-                $(btn).button('reset');
-                $(btn).closest('tr').fadeOut( "slow", function() { });
-                // $(btn).closest('tr').hide();
-                // console.log(data);
-                if(data.result == 1){
-                    $(btn).closest('tr').fadeOut( "slow", function() { });
+
+            $.post( "{{ get_count_Deleted }}", { id: id },function( data ) {
+
+            console.log(data);
+            var msg =('{{ text_delete }} {{ text_clciked }} -> '+data.dashboard_count +'\n{{ text_urls }}      -> '+data.url_count);
+
+
+                var answer=confirm('{{ entry_delete_messag_text }} \n'+msg);
+
+                if(!answer){
+                    $(btn).button('reset');
+                    return ;
                 }
 
+                $.post( "{{ delete_stores }}", { id: id },function( data ) {
+                    $(btn).button('reset');
+                    $(btn).closest('tr').fadeOut( "slow", function() { });
+                    // $(btn).closest('tr').hide();
+                    // console.log(data);
+                    if(data.result == 1){
+                        $(btn).closest('tr').fadeOut( "slow", function() { });
+                    }
+
+                },'json');
+
+
+
             },'json');
+
+
+
+
+
+
+
+
+
+
+
         }
 
 

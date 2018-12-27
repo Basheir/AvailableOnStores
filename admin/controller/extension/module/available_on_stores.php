@@ -3,7 +3,7 @@
 /**
  * Created by Basheir Hassan.
  * User: basheir
- * Version 1.0.0
+ * Version 1.1.0
  */
 
 
@@ -84,10 +84,12 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		$data['delete_stores'] = html_entity_decode($this->url->link('extension/module/available_on_stores/deleteStores', 'user_token=' . $this->session->data['user_token'], 'SSL'));
 		$data['update_stores'] = html_entity_decode($this->url->link('extension/module/available_on_stores/updateStores', 'user_token=' . $this->session->data['user_token'], 'SSL'));
 		$data['url_dashboard'] = html_entity_decode($this->url->link('extension/module/available_on_stores/dashboard', 'user_token=' . $this->session->data['user_token'], 'SSL'));
-
-
-
-
+		$data['get_count_Deleted'] = html_entity_decode($this->url->link('extension/module/available_on_stores/getCountDelete', 'user_token=' . $this->session->data['user_token'], 'SSL'));
+		
+		
+		
+		//		var_dump($r);
+		//admin/model/extension/module/available_on_stores.php
 //		$this->load->model('extension/module/available_on_stores');
 //		$data['rows'] = $this->model_extension_module_available_on_stores->getStoresUrl();
 		$data['rows'] = $this->getStores();
@@ -129,11 +131,10 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		
 		
 		$this->load->model( 'setting/event' );
-		$this->model_setting_event->addEvent( 'available_on_stores_post_add', 'admin/model/catalog/product/addProduct/after', 'extension/module/available_on_stores/addStoresUrlsEvent' );
-		$this->model_setting_event->addEvent( 'available_on_stores_post_edit', 'admin/model/catalog/product/editProduct/after', 'extension/module/available_on_stores/editStoresUrlsEvent' );
+		$this->model_setting_event->addEvent( 'available_on_stores_post_add', 'admin/model/catalog/product/addProduct/after', 'extension/module/available_on_stores/addUrlsEvent' );
+		$this->model_setting_event->addEvent( 'available_on_stores_post_edit', 'admin/model/catalog/product/editProduct/after', 'extension/module/available_on_stores/editUrlsEvent' );
 		$this->model_setting_event->addEvent( 'available_on_stores_post_delete', 'admin/model/catalog/product/deleteProduct/after', 'extension/module/available_on_stores/deleteProductEvent' );
-
-
+		
 
 
 		$this->db->query(
@@ -211,60 +212,194 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
 
+	
+	
+	
+	
+	
 	public function addStores() {
-
-		$this->load->model('extension/module/available_on_stores');
-		$this->model_extension_module_available_on_stores->addStores();
+		
+		$result = false;
+		if ( isset( $this->request->post['available_on_stores_stores_name'] ) ) {
+			
+			$this->load->model('extension/module/available_on_stores');
+			$query = $this->model_extension_module_available_on_stores->addStores($this->request->post['available_on_stores_stores_name']);
+			
+			$result = $this->db->countAffected();
+			$lastID = $this->db->getLastId();
+			
+		}
+		
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode([
+			'result' => $result,
+			'lastID' => $lastID,
+			'name'   => $this->request->post['available_on_stores_stores_name'],
+		]));
+		
 
 	}
+	
+	
+	
+	
+	
+	
 
 	public function getStores() {
 
 		$this->load->model('extension/module/available_on_stores');
 		return $this->model_extension_module_available_on_stores->getStores();
 	}
+	
+	
+	
 
 	public function deleteStores() {
-
+		
+		$store_id = (int)$this->request->post['id'];
 		$this->load->model('extension/module/available_on_stores');
-		return $this->model_extension_module_available_on_stores->deleteStores();
+		$result = $this->model_extension_module_available_on_stores->deleteStores($store_id);
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode([ 'result' => $result ]));
+	
+		
+		
 
 	}
 
 	public function updateStores() {
-
+		
+		
 		$this->load->model('extension/module/available_on_stores');
-		return $this->model_extension_module_available_on_stores->updateStores();
+		$result = $this->model_extension_module_available_on_stores->updateStores($this->request->post['name'],(int)$this->request->post['id']);
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode(['result' => $result ]));
 
 	}
 
 
+	
+	
+	
+		public function getCountDelete() {
+			
+				$ID = (int)$this->request->post['id'];
+				$this->load->model('extension/module/available_on_stores');
+				
+				
+				
+				$this->model_extension_module_available_on_stores->getUrls($ID);
+				$res_url = $this->db->countAffected();
+			
+			
+			
+				$this->model_extension_module_available_on_stores->getDashboardStore($ID);
+				$res_dashboard = $this->db->countAffected();
+			
+			
+				$this->response->addHeader('Content-Type: application/json');
+				$this->response->setOutput(json_encode(array('url_count'=>$res_url,'dashboard_count'=>$res_dashboard)));
+		
+		}
 
 
 
-	function addStoresUrlsEvent($route, $data){
-
+		
+		
+		
+	function addUrlsEvent($route, $data){
+		
+		$this->load->model('setting/setting');
 		$this->load->model('extension/module/available_on_stores');
-		$this->model_extension_module_available_on_stores->addStoresUrls($route, $data);
-
+		
+		
+		if (!$this->config->get('available_on_stores_status')){
+			return;
+		}
+		
+		if (isset($data[0]['available-on-stores-input'])) {
+			
+			$product_id = $this->model_extension_module_available_on_stores->getLastProductId();
+			
+			foreach ($data[0]['available-on-stores-input'] as $key => $product) {
+				if(!empty(trim($product))){
+					
+					$stores_id = $key;
+					$url = $this->db->escape($product);
+					$this->model_extension_module_available_on_stores->addUrls($url,$product_id ,$stores_id);
+					
+				}
+				
+			}
+			
+			
+		}
+		
+		
 	}
 
 
-
-	function editStoresUrlsEvent($route, $data){
-
+	function editUrlsEvent($route, $data){
+		
+		
+		
 		$this->load->model('extension/module/available_on_stores');
-		$this->model_extension_module_available_on_stores->editStoresUrls($route, $data);
+		$product_id = $data[0];
+		
+		$this->load->model('setting/setting');
+		
+		if (!$this->config->get('available_on_stores_status')){
+			return;
+		}
+		
+		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_urls   WHERE  `product_id` ='". $product_id."' "  );
+		
+		
+		if (isset($data[1]['available-on-stores-input'])) {
+			
+			
+			foreach ($data[1]['available-on-stores-input'] as $key => $product) {
+				if(!empty(trim($product))){
+					
+					$stores_id = $key;
+					$url = $this->db->escape($product);
+					$this->model_extension_module_available_on_stores->editUrls($url, $product_id,$stores_id);
+					
+					
+				}
+				
+			}
+			
+			
+		}
+		
+		
 
 	}
 
 
 	function deleteProductEvent($route, $data){
-
+		
 		$this->load->model('extension/module/available_on_stores');
-		$this->model_extension_module_available_on_stores->deleteStoresUrls($route, $data);
+		$product_id = (int)$data[0];
+		
+		$this->load->model('setting/setting');
+		
+		if (!$this->config->get('available_on_stores_status')){
+			return;
+		}
+		
+		$this->model_extension_module_available_on_stores->deleteStoresUrls($product_id);
+		
+		
+		
 
 	}
+	
+	
+	
+	
 
 	function dashboard(){
 		
@@ -277,19 +412,57 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		
 		
 		
-		$this->load->model('extension/module/available_on_stores');
-		$data['rows'] = $this->model_extension_module_available_on_stores->getDashboard($page);
-
 		
-		$total_dashboard =  $this->db->query( "SELECT * FROM  `" . DB_PREFIX . "available_on_stores_dashboard`    ;" )->rows;
+		$this->load->model('catalog/product');
+		$this->load->model('extension/module/available_on_stores');
+		
+		$items = array();
+		
+		$stores = $this->model_extension_module_available_on_stores->getStores();
+		
+		$array_stores = array();
+		foreach ($stores as $store ) {
+			$stores_id = $store['stores_id'];
+			$array_stores[$stores_id]=$store['name'];
+		}
+		
+		
+		
+		$results_dashboard =  $this->model_extension_module_available_on_stores->getDashboardAllData();
+		
+	
+		foreach ($results_dashboard as $result ) {
+			
+			$stores_id = $result['stores_id'];
+			$product_id = $result['product_id'];
+			$store_name = $array_stores[$stores_id];
+			$clicked = $this->model_extension_module_available_on_stores->getDashboardByProductIDAndStoresID($product_id,$stores_id);
+			$product_name  = $this->model_catalog_product->getProduct($product_id)['name'];
+			
+			$data['rows'][$product_id][$stores_id] = array(	'store_name'=> $store_name	,	'clicekd'=> $clicked);
+			$data['rows'][$product_id]['name'] = $product_name;
+			$data['rows'][$product_id]['url'] = $this->url->link( 'catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product_id, true );
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		// Pagination
+		$total_dashboard =  $this->model_extension_module_available_on_stores->getDashboardAllData();
 		$data['pagination'] = '';
 		$pagination = new Pagination();
 		$pagination->total = sizeof($total_dashboard);
 		$pagination->page = $page;
 		$pagination->limit = 20;
 		$pagination->text = $this->language->get('text_pagination');
-		$pagination->url = $this->url->link('extension/module/available_on_stores/dashboard', 'product_id=' . $this->request->get['product_id'] .'&user_token=' . $this->session->data['user_token']. '&page={page}');
+		$pagination->url = $this->url->link('extension/module/available_on_stores/dashboard', 'product_id=' . @$this->request->get['product_id'] .'&user_token=' . $this->session->data['user_token']. '&page={page}');
 		$data['pagination'] = $pagination->render();
+		
+		
 		
 		
 		
@@ -305,8 +478,10 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 	}
 
-
-
+ 
+ 
 
 
 }
+
+

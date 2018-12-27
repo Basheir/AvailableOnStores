@@ -43,6 +43,8 @@
 
                 {% for key,val in rows_available_on_stores %}
 
+
+
                     {% if rows_available_on_stores|length == 0 %}
 
                    <div class="alert alert-danger" role="alert">please Add stores</div>
@@ -93,9 +95,17 @@
             <search position="after"><![CDATA[getForm()]]></search>
             <add><![CDATA[
 
-            $this->load->model('extension/module/available_on_stores');
-            $data['rows_available_on_stores'] = $this->model_extension_module_available_on_stores->getStores();
-            $data['rows_available_on_stores_urls'] = $this->model_extension_module_available_on_stores->getStoresUrls();
+        $this->load->model('extension/module/available_on_stores');
+	    $product_id = (int)$this->request->get['product_id'];
+	    $result = $this->model_extension_module_available_on_stores->getUrls($product_id);
+	    $items = array();
+	    foreach ($result as $key    =>  $value){
+		    $items[$value['stores_id']] = $value['url'];
+	    }
+
+	    $data['rows_available_on_stores_urls'] =  $items;
+        $data['rows_available_on_stores'] = $this->model_extension_module_available_on_stores->getStores();
+
             ]]></add>
         </operation>
     </file>
