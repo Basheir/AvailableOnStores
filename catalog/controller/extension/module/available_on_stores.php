@@ -71,15 +71,26 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
 
 
 
+                
                 if ($this->db->countAffected() > 0) {
-	                echo json_encode(array('result' => $result,'theme'=>$theme),JSON_FORCE_OBJECT);
+	                $json = array('result' => $result,'theme'=>$theme);
                 } else {
-                    echo json_encode(array('result' => false,'theme'=>$theme));
+                    $json = array('result' => false,'theme'=>$theme);
 
                 }
+	
+	            $this->response->addHeader('Content-Type: application/json');
+	            $this->response->setOutput(json_encode($json));
+             
+             
             }
 
         }
+	    
+	    
+	    else {
+		   echo 'Module Not enabled';
+	    }
 
 
 
