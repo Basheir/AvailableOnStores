@@ -3,7 +3,7 @@
 /**
  * Created by Basheir Hassan.
  * User: basheir
- * Version 1.1.0
+ * Version 1.2.0
  */
 
 
