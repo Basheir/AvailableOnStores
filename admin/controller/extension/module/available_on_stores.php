@@ -410,11 +410,18 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 			$page = 1;
 		}
 		
+		$limit = 10;
 		
 		
 		
 		$this->load->model('catalog/product');
 		$this->load->model('extension/module/available_on_stores');
+		
+		
+		
+		
+		
+		
 		
 		$items = array();
 		
@@ -428,7 +435,8 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		
 		
 		
-		$results_dashboard =  $this->model_extension_module_available_on_stores->getDashboardAllData();
+		$results_dashboard =  $this->model_extension_module_available_on_stores->getDashboardByPage($page, $limit);
+		
 		
 	
 		foreach ($results_dashboard as $result ) {
@@ -439,9 +447,11 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 			$clicked = $this->model_extension_module_available_on_stores->getDashboardByProductIDAndStoresID($product_id,$stores_id);
 			$product_name  = $this->model_catalog_product->getProduct($product_id)['name'];
 			
-			$data['rows'][$product_id][$stores_id] = array(	'store_name'=> $store_name	,	'clicekd'=> $clicked);
+			$data['rows'][$product_id][$stores_id] = array(	'store_name'=> $store_name	,'clicekd'=> $clicked);
 			$data['rows'][$product_id]['name'] = $product_name;
 			$data['rows'][$product_id]['url'] = $this->url->link( 'catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product_id, true );
+			$data['rows'][$product_id]['product_page'] = '../index.php?route=product/product&product_id='.$product_id;
+			
 			
 			
 		}
@@ -457,7 +467,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		$pagination = new Pagination();
 		$pagination->total = sizeof($total_dashboard);
 		$pagination->page = $page;
-		$pagination->limit = 20;
+		$pagination->limit = $limit;
 		$pagination->text = $this->language->get('text_pagination');
 		$pagination->url = $this->url->link('extension/module/available_on_stores/dashboard', 'product_id=' . @$this->request->get['product_id'] .'&user_token=' . $this->session->data['user_token']. '&page={page}');
 		$data['pagination'] = $pagination->render();
@@ -479,6 +489,8 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 	}
 
  
+	
+	
  
 
 

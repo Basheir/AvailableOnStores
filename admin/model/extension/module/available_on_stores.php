@@ -117,9 +117,25 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	public function getDashboardAllData() {
 		
-		return $this->db->query("Select * from " . DB_PREFIX. "available_on_stores_dashboard " )->rows;
+		
+		
+		return $this->db->query("Select * from " . DB_PREFIX. "available_on_stores_dashboard GROUP BY  product_id,stores_id " )->rows;
 		
 	}
+	
+	
+	
+	public function getDashboardByPage($page=1, $limit=10) {
+		
+		if ($page) {
+			$start = ($page - 1) * $limit;
+		}
+		
+		return $this->db->query("Select * from " . DB_PREFIX. "available_on_stores_dashboard   LIMIT $start,$limit" )->rows;
+		
+	}
+	
+	
 	
 	
 	
