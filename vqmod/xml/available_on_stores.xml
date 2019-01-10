@@ -125,12 +125,13 @@
           <script>
           $(document).ready(function () {
 
-
+                      spinner(true);
                       setTimeout(function () {
 
 
                           $.getJSON("index.php?route=extension/module/available_on_stores/getStoreUrls", {product_id: "{{ product_id }}"}, function (json) {
 
+                                spinner(false);
                               if (json.result != false) {
 
                                   jQuery.each(json.result, function (i, val) {
@@ -162,6 +163,7 @@
 
 
                       var obj = $("#button-cart").clone();
+                      obj.attr('id','available_on_stores_'+stores_id);
                       obj.text(name);
                       obj.on('click', function () {
                           $.post("index.php?route=extension/module/available_on_stores", {
@@ -181,6 +183,7 @@
 
                   function defualtTheam(stores_id, url, name) {
                       var obj = $("#button-cart").clone();
+                      obj.attr('id','available_on_stores_'+stores_id);
                       obj.text(name);
                       obj.on('click', function () {
                           $.post("index.php?route=extension/module/available_on_stores", {
@@ -193,6 +196,20 @@
 
                       $(".form-group").append(obj);
                       obj.removeAttr('disabled');
+                  }
+
+
+
+                  function spinner(isShow){
+
+                  if(isShow){
+                    $("div .button-group-page").prepend('<i id="available_on_stores_spinner" class="fa fa-spinner fa-spin" style="font-size:24px"></i>');
+
+                  }
+                  else {
+                  $("#available_on_stores_spinner").remove();
+                  }
+
                   }
 
 
