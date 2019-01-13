@@ -32,6 +32,8 @@
                     <div class="container">
                         <div id="alertJson" role="alert"></div>
 
+
+
                         <table id="dateStore" class="table table-bordered table-hover" style="width:100%">
                             <tr>
                                 <th>{{ text_row_id }}</th>
@@ -54,10 +56,11 @@
 
                                         </div>
                                     </td>
-                                    <td><a href="{{ row.url }}">{{ row.name }} </a> &nbsp; <a
-                                                href="{{ row.product_page }}" target="_blank"><i
-                                                    class="fa fa-external-link fa-fw text-danger"
-                                                    aria-hidden="true"></i></a></td>
+                                    <td><a href="{{ row.url }}">{{ row.name }} </a> &nbsp;
+                                        <a href="{{ row.product_page }}" target="_blank"><i class="fa fa-external-link fa-fw text-danger" aria-hidden="true"></i> </a>
+
+
+                                    </td>
 
                                 </tr>
                             {% endfor %}
@@ -74,6 +77,8 @@
     </div>
 </div>
 <div class="pagination">{{ pagination }}</div>
+
+
 
 
 {{ footer }}

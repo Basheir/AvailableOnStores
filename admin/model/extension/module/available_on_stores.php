@@ -147,8 +147,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	}
 	
 	
-	
-	
+
 	
 	
 	

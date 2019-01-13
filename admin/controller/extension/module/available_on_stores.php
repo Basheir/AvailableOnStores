@@ -451,6 +451,8 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 			$data['rows'][$product_id]['name'] = $product_name;
 			$data['rows'][$product_id]['url'] = $this->url->link( 'catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product_id, true );
 			$data['rows'][$product_id]['product_page'] = '../index.php?route=product/product&product_id='.$product_id;
+			$data['rows'][$product_id]['getChart'] = htmlspecialchars_decode($this->url->link('extension/module/available_on_stores/getChart', 'user_token=' . $this->session->data['user_token'].'&product_id=' . $product_id, 'SSL'));
+			
 			
 			
 			
@@ -487,8 +489,11 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		$this->response->setOutput($this->load->view('extension/module/available_on_stores_dashboard', $data));
 
 	}
-
- 
+	
+	
+	
+	
+	
 	
 	
  

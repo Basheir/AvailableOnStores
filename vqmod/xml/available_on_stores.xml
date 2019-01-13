@@ -194,7 +194,7 @@
                           window.open(url, '_blank');
                       });
 
-                      $(".form-group").append(obj);
+                      $("#button-cart").after(obj);
                       obj.removeAttr('disabled');
                   }
 
