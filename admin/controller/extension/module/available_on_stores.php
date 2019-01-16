@@ -3,7 +3,7 @@
 /**
  * Created by Basheir Hassan.
  * User: basheir
- * Version 1.2.0
+ * Version 1.2.1
  */
 
 
@@ -390,11 +390,9 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 			return;
 		}
 		
-		$this->model_extension_module_available_on_stores->deleteStoresUrls($product_id);
+		$this->model_extension_module_available_on_stores->deleteUrls($product_id);
+		$this->model_extension_module_available_on_stores->deleteDashboard($product_id);
 		
-		
-		
-
 	}
 	
 	

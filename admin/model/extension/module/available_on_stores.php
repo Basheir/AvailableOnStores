@@ -2,7 +2,7 @@
 
 /**
  * Created by Basheir Hassan.
- * Version 1.2.0
+ * Version 1.2.1
  */
 
 
@@ -101,8 +101,11 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	}
 
 
+	
+	
+	
 
-	//-------------------
+	//------------------- DashBorad
 	
 	
 	
@@ -112,6 +115,19 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 		return $this->db->query( "Select * from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `stores_id` ='".(int) $ID."' "  );
 		
 	}
+	
+	
+	
+	
+	public function deleteDashboard($product_Id) {
+		
+		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `product_id` ='". $product_Id."' "  );
+		
+		return  $this->db->countAffected();
+		
+	}
+	
+	
 	
 	
 	
