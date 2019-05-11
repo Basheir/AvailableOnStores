@@ -3,7 +3,7 @@
 /**
  * Created by Basheir Hassan.
  * User: basheir
- * Version 1.2.1
+ * Version 1.2.2
  */
 
 
@@ -279,9 +279,9 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 	}
 
 
-	
-	
-	
+  /**
+   * مجموع الجداول المحذوفة
+   */
 		public function getCountDelete() {
 			
 				$ID = (int)$this->request->post['id'];
@@ -394,10 +394,11 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		$this->model_extension_module_available_on_stores->deleteDashboard($product_id);
 		
 	}
-	
-	
-	
-	
+
+
+  /**
+   * عرض النقرات في صفجة الداشبورد
+   */
 
 	function dashboard(){
 		
@@ -414,28 +415,31 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		
 		$this->load->model('catalog/product');
 		$this->load->model('extension/module/available_on_stores');
+
 		
-		
-		
-		
-		
-		
-		
-		$items = array();
-		
+
+
+		//  جلب الستورات مثلا سوق كوم او ايبياي او امازون مسجلة بقاعدة البيانات
 		$stores = $this->model_extension_module_available_on_stores->getStores();
-		
+
+
+
 		$array_stores = array();
 		foreach ($stores as $store ) {
 			$stores_id = $store['stores_id'];
 			$array_stores[$stores_id]=$store['name'];
 		}
 		
-		
-		
+
+
+
+
+
 		$results_dashboard =  $this->model_extension_module_available_on_stores->getDashboardByPage($page, $limit);
-		
-		
+
+
+
+
 	
 		foreach ($results_dashboard as $result ) {
 			
@@ -450,9 +454,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 			$data['rows'][$product_id]['url'] = $this->url->link( 'catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product_id, true );
 			$data['rows'][$product_id]['product_page'] = '../index.php?route=product/product&product_id='.$product_id;
 			$data['rows'][$product_id]['getChart'] = htmlspecialchars_decode($this->url->link('extension/module/available_on_stores/getChart', 'user_token=' . $this->session->data['user_token'].'&product_id=' . $product_id, 'SSL'));
-			
-			
-			
+
 			
 		}
 		
@@ -461,20 +463,21 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 		
 		
 		
-		// Pagination
-		$total_dashboard =  $this->model_extension_module_available_on_stores->getDashboardAllData();
+		// جلب عدد الجداول
+		$count_rows =  $this->model_extension_module_available_on_stores->getCountAllRows();
+
+
+
+
 		$data['pagination'] = '';
 		$pagination = new Pagination();
-		$pagination->total = sizeof($total_dashboard);
+		$pagination->total = $count_rows;
 		$pagination->page = $page;
 		$pagination->limit = $limit;
 		$pagination->text = $this->language->get('text_pagination');
 		$pagination->url = $this->url->link('extension/module/available_on_stores/dashboard', 'product_id=' . @$this->request->get['product_id'] .'&user_token=' . $this->session->data['user_token']. '&page={page}');
 		$data['pagination'] = $pagination->render();
-		
-		
-		
-		
+
 		
 		
 		$this->load->language('extension/module/available_on_stores');
@@ -488,13 +491,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 	}
 	
-	
-	
-	
-	
-	
-	
- 
+
 
 
 }

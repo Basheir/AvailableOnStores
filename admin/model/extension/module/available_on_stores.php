@@ -2,7 +2,7 @@
 
 /**
  * Created by Basheir Hassan.
- * Version 1.2.1
+ * Version 1.2.2
  */
 
 
@@ -34,9 +34,9 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 	public function deleteStores($store_id) {
 
-		$this->db->query( "DELETE from `" . DB_PREFIX . "available_on_stores` WHERE `stores_id` = '". $store_id . "';" );
-		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_urls   WHERE  `stores_id` ='". $store_id."' "  );
-		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `stores_id` ='". $store_id."' "  );
+		$this->db->query( "DELETE from `" . DB_PREFIX . "available_on_stores` WHERE `stores_id` = '". $this->db->escape($store_id). "';" );
+		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_urls   WHERE  `stores_id` ='". $this->db->escape($store_id)."' "  );
+		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `stores_id` ='". $this->db->escape($store_id)."' "  );
 		
 		return  $this->db->countAffected();
 		
@@ -53,7 +53,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 		                  . "available_on_stores` SET `name` = '"
 		                  . $this->db->escape( $name )
 		                  . "'  WHERE `stores_id` = '"
-		                  . $id
+		                  . $this->db->escape($id)
 		                  . "';" );
 		
 		return $this->db->countAffected() ;
@@ -68,7 +68,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	public function addUrls($url,$product_id ,$stores_id) {
 	
-	return $this->db->query( "INSERT INTO " . DB_PREFIX. "available_on_stores_urls (`url`,`product_id`,`stores_id`) VALUES ('".  $url . "','". $product_id  . "','". $stores_id  . "')" );
+	return $this->db->query( "INSERT INTO " . DB_PREFIX. "available_on_stores_urls (`url`,`product_id`,`stores_id`) VALUES ('". $this->db->escape($url) . "','". $this->db->escape($product_id)  . "','". $this->db->escape($stores_id)  . "')" );
 	
 
 	}
@@ -77,7 +77,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 	public function getUrls($product_id) {
 
-		return  $this->db->query( "SELECT * from `" . DB_PREFIX . "available_on_stores_urls` WHERE  `product_id` ='". $product_id."' ;" )->rows;
+		return  $this->db->query( "SELECT * from `" . DB_PREFIX . "available_on_stores_urls` WHERE  `product_id` ='". $this->db->escape($product_id)."' ;" )->rows;
 	
 	}
 
@@ -86,7 +86,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	public function editUrls($url, $product_id,$stores_id) {
 	
-	return 	$this->db->query( "INSERT INTO " . DB_PREFIX. "available_on_stores_urls (`url`,`product_id`,`stores_id`) VALUES ('".  $url . "','". $product_id  . "','". $stores_id  . "')" );
+	return 	$this->db->query( "INSERT INTO " . DB_PREFIX. "available_on_stores_urls (`url`,`product_id`,`stores_id`) VALUES ('".  $this->db->escape($url) . "','". $this->db->escape($product_id)  . "','". $this->db->escape($stores_id)  . "')" );
 
 	}
 
@@ -96,7 +96,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 	public function deleteUrls($product_id) {
 		
-		return $this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_urls   WHERE  `product_id` ='". $product_id."' "  );
+		return $this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_urls   WHERE  `product_id` ='".$this->db->escape($product_id)."' "  );
 
 	}
 
@@ -112,7 +112,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	public function getDashboardStore($ID) {
 		
-		return $this->db->query( "Select * from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `stores_id` ='".(int) $ID."' "  );
+		return $this->db->query( "SELECT * from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `stores_id` ='".$this->db->escape($ID)."' "  );
 		
 	}
 	
@@ -121,7 +121,7 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	public function deleteDashboard($product_Id) {
 		
-		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `product_id` ='". $product_Id."' "  );
+		$this->db->query( "DELETE from " . DB_PREFIX. "available_on_stores_dashboard   WHERE  `product_id` ='".$this->db->escape($product_Id)."' "  );
 		
 		return  $this->db->countAffected();
 		
@@ -130,14 +130,30 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	
 	
-	
+	/**
 	public function getDashboardAllData() {
-		
-		
-		
-		return $this->db->query("Select * from " . DB_PREFIX. "available_on_stores_dashboard GROUP BY  product_id,stores_id " )->rows;
-		
+
+	return $this->db->query("Select COUNT(*) from " . DB_PREFIX. "available_on_stores_dashboard GROUP BY  product_id,stores_id " )->rows;
+
 	}
+ * /
+
+
+
+
+
+  /**
+   * @return mixed جلب عدد الجداول كاملة
+   */
+	public function getCountAllRows() {
+
+	  $this->db->query("SELECT `product_id`,`stores_id`,`stores_id`,`date`,COUNT(`product_id`) as count from " . DB_PREFIX. "available_on_stores_dashboard group by `product_id`,`stores_id`" )->rows;
+		return $this->db->countAffected();
+
+	}
+
+
+
 	
 	
 	
@@ -147,17 +163,21 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 			$start = ($page - 1) * $limit;
 		}
 		
-		return $this->db->query("Select * from " . DB_PREFIX. "available_on_stores_dashboard   LIMIT $start,$limit" )->rows;
+		return $this->db->query("SELECT `product_id`,`stores_id`,`stores_id`,`date`,COUNT(`product_id`) as totalClicked from " . DB_PREFIX. "available_on_stores_dashboard group by `product_id`,`stores_id` order by `totalClicked` desc   LIMIT " .$this->db->escape($start).",".$this->db->escape($limit))->rows;
 		
 	}
-	
-	
-	
-	
-	
+
+
+  /**
+   * @param $product_id رقم المنتج
+   * @param $stores_id رقم الستور
+   * جلب مجموع عدد النقرات حسب المنتج
+   * @return mixed
+   */
+
 	public function getDashboardByProductIDAndStoresID($product_id,$stores_id) {
 		
-		return  $this->db->query( "SELECT count(`product_id`) as Total FROM  `" . DB_PREFIX . "available_on_stores_dashboard` WHERE `product_id` ='". (int)$product_id."' and  `stores_id` ='". (int)$stores_id ."';" )->rows[0]['Total'];
+		return  $this->db->query( "SELECT count(`product_id`) as Total FROM  `" . DB_PREFIX . "available_on_stores_dashboard` WHERE `product_id` ='". $this->db->escape($product_id)."' and  `stores_id` ='". $this->db->escape($stores_id) ."';" )->rows[0]['Total'];
 		
 		
 	}
@@ -177,5 +197,5 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 	
 	
-	
+
 }
