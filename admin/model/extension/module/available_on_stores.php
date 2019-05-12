@@ -2,6 +2,7 @@
 
 /**
  * Created by Basheir Hassan.
+ * Version 1.2.2
  */
 
 
@@ -198,3 +199,5 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 	
 
 }
+
+

@@ -2,6 +2,8 @@
 
 /**
  * Created by Basheir Hassan.
+ * User: basheir
+ * Version 1.2.2
  */
 
 
@@ -51,7 +53,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
 
 
         $statUS = $this->config->get('available_on_stores_status');
-	      $theme = $this->config->get('config_theme') ;
+	    $theme = $this->config->get('config_theme') ;
 	
 	
 	    if ($statUS) {
@@ -87,7 +89,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
 	    
 	    
 	    else {
-		   echo 'Module Not enabled in Admin Controll';
+		   echo 'Module Not enabled';
 	    }
 
 
