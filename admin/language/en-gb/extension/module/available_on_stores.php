@@ -3,11 +3,10 @@
 /**
  * Created by Basheir Hassan.
  * User: basheir
- * Version 1.2.2
  */
 
 
-$_['text_version'] = '1.2.1 ';
+$_['text_version'] = '1.2.2 ';
 
 // Heading
 $_['heading_title']    		= 'Available on Stores';
@@ -56,3 +55,7 @@ $_['text_row_clicked'] 		= 'clicked';
 $_['text_row_url'] 		    = 'Url';
 $_['text_row_date'] 		= 'Date';
 
+
+
+
+$_['text_help_edit'] 		= 'Click her to edit';

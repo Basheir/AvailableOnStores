@@ -3,11 +3,10 @@
 /**
  * Created by Basheir Hassan.
  * User: basheir
- * Version 1.2.2
  */
 
 
-$_['text_version'] = '1.2.1';
+$_['text_version'] = '1.2.2';
 
 // Heading
 $_['heading_title']    		= 'Available on Stores';
@@ -55,4 +54,9 @@ $_['text_row_id'] 		    = 'نقرات ';
 $_['text_row_clicked'] 		= 'نقرة';
 $_['text_row_url'] 		    = 'رابط';
 $_['text_row_date'] 		= 'تاريخ';
+
+
+
+
+$_['text_help_edit'] 		= 'اضغط هنا للتعديل';
 
