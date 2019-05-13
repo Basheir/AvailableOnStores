@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="992d5c6a-b900-4bae-81e6-ae2f99f8ee01" name="local" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="/Applications/MAMP/htdocs/opencart3032" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
