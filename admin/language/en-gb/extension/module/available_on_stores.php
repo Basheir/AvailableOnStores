@@ -16,7 +16,7 @@ $_['header_customer_message'] = 'User Settings';
 
 
 // Text
-$_['text_extension']   		= 'Extensions - الاضافة';
+$_['text_extension']   		= 'Extensions - ';
 $_['text_success']     		= 'Successfully modified / Available on Stores!';
 $_['text_edit']        		= 'Edit Settings Available on Stores Module';
 $_['text_edit'] = 'ِEdit / Available on Stores';
@@ -57,5 +57,5 @@ $_['text_row_url'] 		    = 'Url';
 $_['text_row_date'] 		= 'Date';
 
 
-
+ // helper
 $_['text_help_edit'] 		= 'Click her to edit Name';

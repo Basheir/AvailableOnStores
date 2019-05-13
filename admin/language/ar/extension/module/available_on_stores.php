@@ -59,4 +59,5 @@ $_['text_row_date'] 		= 'تاريخ';
 
 
 
+// helper
 $_['text_help_edit'] 		= 'انقر هنا لتعديل المسمى';
