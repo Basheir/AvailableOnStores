@@ -56,3 +56,8 @@ $_['text_row_clicked'] 		= 'نقرة';
 $_['text_row_url'] 		    = 'رابط';
 $_['text_row_date'] 		= 'تاريخ';
 
+
+
+
+$_['text_help_edit'] 		= 'انقر هنا لتعديل المسمى';
+

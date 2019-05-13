@@ -56,3 +56,6 @@ $_['text_row_clicked'] 		= 'clicked';
 $_['text_row_url'] 		    = 'Url';
 $_['text_row_date'] 		= 'Date';
 
+
+
+$_['text_help_edit'] 		= 'Click her to edit Name';

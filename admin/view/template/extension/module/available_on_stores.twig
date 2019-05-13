@@ -102,7 +102,7 @@
                          {% for row in rows %}
                              <tr>
                                  <td>{{ row.stores_id }}</td>
-                                 <td valueID="{{ row.stores_id }}" class="EditName">{{ row.name }}</td>
+                                 <td valueID="{{ row.stores_id }}" class="EditName">{{ row.name }}<i class="fa fa-edit text-primary" title="{{ text_help_edit }}"></i></td>
                                  <td>{{ row.date }}</td>
                                  <td><button onclick="deleteStores('{{ row.stores_id }}',this)" type="button" class="btn btn-danger Del" aria-label="Left Align"><span class="fa fa-trash-o" aria-hidden="true"></span></button></td>
                              </tr>
