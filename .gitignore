@@ -19,5 +19,6 @@ vqmod/vqcache/*
 vqmod/checked.cache
 vqmod/mods.cache
 
-.DS_Store.DS_Store
 .DS_Store
+
+.idea/

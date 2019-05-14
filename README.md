@@ -38,3 +38,11 @@ openCart Version 3.0.xxx
 
 
 
+
+
+عرض على القائمة
+----------------------
+<img src="./screenshot/4.png" alt="Add Stores" >
+
+
+
