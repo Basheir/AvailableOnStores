@@ -2,12 +2,10 @@
 
 /**
  * Created by Basheir Hassan.
- * User: basheir
- * Version 1.2.2
  */
 
 
-$_['text_version'] = '1.2.1';
+$_['text_version'] = '1.2.7';
 
 // Heading
 $_['heading_title']    		= 'Available on Stores';

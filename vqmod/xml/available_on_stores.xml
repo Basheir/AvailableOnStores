@@ -3,15 +3,12 @@
     <name>available_on_stores</name>
     <code>available_on_stores</code>
     <id>available_on_stores</id>
-    <version>1.2.1</version>
+    <version>1.2.7</version>
     <vqmver>2.5.1</vqmver>
     <author>Basheir Hassan</author>
 
 
-
-
-
-<file path="admin/view/template/catalog/product_form.twig">
+    <file path="admin/view/template/catalog/product_form.twig">
 
         <operation>
             <search><![CDATA[
@@ -24,12 +21,11 @@
         </operation>
 
 
-
-    <operation>
-        <search><![CDATA[
+        <operation>
+            <search><![CDATA[
               			<div class="tab-pane" id="tab-design">
 				]]></search>
-        <add position="before"><![CDATA[
+            <add position="before"><![CDATA[
 
        <div class="tab-pane" id="available_on_stores">
               <div class="table-responsive">
@@ -80,13 +76,10 @@
 
 
 ]]></add>
-    </operation>
+        </operation>
 
 
     </file>
-
-
-
 
 
     // get Stores
@@ -109,8 +102,6 @@
             ]]></add>
         </operation>
     </file>
-
-
 
 
     <!--View Defualt-->
@@ -220,6 +211,28 @@
         </operation>
     </file>
 
+
+
+
+
+
+    <!--    add the panel-->
+
+    <file name="admin/controller/common/column_left.php">
+        <operation error="skip">
+            <search position="after"><![CDATA[if ($marketplace) {]]></search>
+            <add><![CDATA[
+            if ($this->user->hasPermission('access', 'extension/module/available_on_stores')) {
+  	            $marketplace[] = array(
+					'name'	   => 'Available on Stores',
+					'href'     => $this->url->link('extension/module/available_on_stores', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()
+				);
+			}
+
+            ]]></add>
+        </operation>
+    </file>
 
 
 </modification>

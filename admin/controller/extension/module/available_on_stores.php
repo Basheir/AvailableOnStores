@@ -2,8 +2,6 @@
 
 /**
  * Created by Basheir Hassan.
- * User: basheir
- * Version 1.2.2
  */
 
 

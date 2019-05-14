@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c80feeb-a14c-4850-8b7c-999351b4c262" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/AvailableOnStores.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/extension/module/available_on_stores.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" afterDir="false" />
     </list>
     <list id="086c4d35-ac8d-4f6c-8aa7-e5a3adc0791b" name="Revert &quot;This is a new commit for what I originally planned to be amended&quot;" comment="Revert &quot;This is a new commit for what I originally planned to be amended&quot;&#10;&#10;This reverts commit a3466c59">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +28,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vqmod/xml/available_on_stores.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1815">
+              <caret line="224" column="90" selection-start-line="224" selection-start-column="90" selection-end-line="224" selection-end-column="90" />
+              <folding>
+                <element signature="n#file#2;n#modification#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2670">
+              <caret line="178" selection-start-line="178" selection-end-line="178" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+            <state relative-caret-position="389">
+              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding>
                 <element signature="e#7#78#0#PHP" expanded="true" />
               </folding>
@@ -44,10 +65,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#7#44#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-end-line="60" />
+            <state relative-caret-position="240">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding>
                 <element signature="e#7#78#0#PHP" expanded="true" />
               </folding>
@@ -62,6 +104,7 @@
       <find>Module Not enabled</find>
       <find>Not enabled</find>
       <find>fa fa-edit text-primary</find>
+      <find>* Version 1.2.2</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -79,21 +122,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" />
-        <option value="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" />
-        <option value="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" />
+        <option value="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" />
+        <option value="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" />
         <option value="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" />
+        <option value="$PROJECT_DIR$/admin/controller/extension/module/available_on_stores.php" />
+        <option value="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" />
+        <option value="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" />
+        <option value="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" />
       </list>
     </option>
   </component>
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php">
       <ranges>
-        <range start1="18" end1="19" start2="18" end2="19" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
-        <range start1="59" end1="60" start2="59" end2="60" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
-        <range start1="61" end1="61" start2="61" end2="62" changelist="086c4d35-ac8d-4f6c-8aa7-e5a3adc0791b" />
+        <range start1="4" end1="6" start2="4" end2="4" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="9" end1="10" start2="7" end2="8" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="12" end1="14" start2="10" end2="12" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="18" end1="24" start2="16" end2="22" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="31" end1="32" start2="29" end2="30" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="45" end1="47" start2="43" end2="45" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="56" end1="57" start2="54" end2="55" changelist="9c80feeb-a14c-4850-8b7c-999351b4c262" />
+        <range start1="60" end1="61" start2="58" end2="60" changelist="086c4d35-ac8d-4f6c-8aa7-e5a3adc0791b" />
       </ranges>
     </file>
   </component>
@@ -312,6 +362,8 @@
       <workItem from="1557751557526" duration="37000" />
       <workItem from="1557751622963" duration="45000" />
       <workItem from="1557751713489" duration="1440000" />
+      <workItem from="1557761154409" duration="111000" />
+      <workItem from="1557838870236" duration="4431000" />
     </task>
     <task id="LOCAL-00001" summary="تعديلات عامة">
       <created>1557693346451</created>
@@ -334,21 +386,27 @@
       <option name="project" value="LOCAL" />
       <updated>1557755916688</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="اصلاحات عامة">
+      <created>1557757252612</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557757252612</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10038000" />
+    <option name="totallyTimeSpent" value="15551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="930" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Repositories" visible="true" weight="0.32960597" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25772098" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3232162" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="GitHub Pull Requests" weight="0.3293556" />
+      <window_info id="Repositories" order="3" visible="true" weight="0.32960597" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -362,6 +420,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946752" weight="0.46778044" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5005325" side_tool="true" weight="0.3293556" />
+      <window_info anchor="bottom" id="GitHub Pull Requests" order="13" weight="0.3293556" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -424,29 +483,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="تعديلات عامة" />
-    <option name="LAST_COMMIT_MESSAGE" value="تعديلات عامة" />
+    <MESSAGE value="اصلاحات عامة" />
+    <option name="LAST_COMMIT_MESSAGE" value="اصلاحات عامة" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/MAMP/htdocs/4techs/admin/view/template/extension/module/available_on_stores.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1158">
           <folding>
             <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vqmod/xml/available_on_stores.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -467,40 +513,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="e#7#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vqmod/xml/available_on_stores.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="224" column="90" selection-start-line="224" selection-start-column="90" selection-end-line="224" selection-end-column="90" />
+          <folding>
+            <element signature="n#file#2;n#modification#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="497" column="4" selection-start-line="497" selection-start-column="4" selection-end-line="497" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="2670">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
           <folding>
             <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-662">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-end-line="60" />
-          <folding>
-            <element signature="e#7#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        <state relative-caret-position="389">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding>
             <element signature="e#7#78#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#7#44#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
