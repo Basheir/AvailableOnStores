@@ -1,0 +1,315 @@
+{{ header }}
+{{ column_left }}
+
+
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+
+
+                <a href="{{ url_dashboard }}" data-toggle="tooltip" title="{{ text_input_dashboard }}"
+                   class="btn btn-success"><i
+                            class="fa fa-tachometer"></i></a>
+
+                <button type="submit" form="form_push" data-toggle="tooltip" title="{{ button_save }}"
+                        class="btn btn-primary"><i class="fa fa-save"></i></button>
+
+
+                <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i
+                            class="fa fa-reply"></i></a></div>
+            <h1>{{ heading_title }} V:{{ text_version }}</h1>
+            <ul class="breadcrumb">
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="{{ breadcrumb['href'] }}">{{ breadcrumb.text }}</a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+
+
+    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-push" class="form-horizontal">
+
+
+        <div class="container-fluid">
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }} </h3>
+                </div>
+                <div class="panel-body">
+
+                    <div id="status"></div>
+
+                    {% if error_no_key %}
+                        <div class="alert alert-danger" role="alert">{{ error_no_key }}</div>
+                    {% endif %}
+
+
+                    {% if error_no_chat_ids %}
+                        <div class="alert alert-danger" role="alert">{{ error_no_chat_ids }}</div>
+                    {% endif %}
+
+
+                    <div class="container col-lg-12 col-md-12">
+
+
+                        <div class="container">
+                            <div class="row">
+
+                                {#A#}
+                                <div class="col-md-6 ">
+                                    <div class="row" id="groubChatID">
+                                        <div class="input-group col-md-12">
+                                            <span class="input-group-addon"
+                                                  id="basic-addon1">{{ text_input_store }}</span>
+                                            <input type="text" name="available_on_stores_stores_name"
+                                                   id="available_on_stores_stores_name"
+                                                   value="" placeholder="{{ text_input_store }}"
+                                                   class="form-control"/>
+                                            <span class="input-group-btn"><button id="add_stores" class="btn btn-info "
+                                                                                  type="button"><i
+                                                            class="fa fa-address-card"></i></button> </span>
+                                        </div>
+                                        <br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                    </div>
+
+
+                    <div class="container">
+                        <div id="alertJson" role="alert"></div>
+
+                        <table id="dateStore" class="table table-bordered table-hover" style="width:100%">
+                            <tr>
+                                <th>{{ text_row_id }}</th>
+                                <th>{{ text_row_name }}</th>
+                                <th>{{ text_row_date }}</th>
+                                <th>{{ text_row_delete }}</th>
+                            </tr>
+
+                            {% for row in rows %}
+                                <tr>
+                                    <td>{{ row.stores_id }}</td>
+                                    <td valueID="{{ row.stores_id }}" data-name="{{ row.name }}" class="EditName"><i
+                                                class="fa fa-edit text-primary"
+                                                title="{{ text_help_edit }}"></i> {{ row.name }} </td>
+                                    <td>{{ row.date|date('Y-m-d') }}</td>
+                                    <td>
+                                        <button onclick="deleteStores('{{ row.stores_id }}',this)" type="button"
+                                                class="btn btn-danger Del" aria-label="Left Align"><span
+                                                    class="fa fa-trash-o" aria-hidden="true"></span></button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="row">
+                        <label class="col-sm-2 control-label"
+                               for="input-module_hello_world_status">{{ entry_status }}</label>
+                        <div class="col-sm-10">
+                            <select name="available_on_stores_status" id="available_on_stores_status"
+                                    class="form-control">
+                                {% if available_on_stores_status %}
+                                    <option value="1" selected>{{ text_enabled }}</option>
+                                    <option value="0">{{ text_disabled }}</option>
+                                {% else %}
+                                    <option value="1">{{ text_enabled }}</option>
+                                    <option value="0" selected>{{ text_disabled }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        // getStoresUrl();
+
+
+        $('#available_on_stores_stores_name').keypress(function (e) {
+            if (e.which === 13) {
+
+                addStore();
+                return false;    //<---- Add this line
+            }
+        });
+
+
+        $("#add_stores").click(function () {
+
+            addStore();
+        });
+
+
+        $(".EditName").on('click', function () {
+            var $this = $(this);
+            var valueID = $this.attr('valueID');
+            var lastName = $(this).data("name")
+
+            var $input = $('<input>', {
+                value: $this.text(),
+                width: '100%',
+                height: '30px',
+                type: 'text',
+                blur: function () {
+
+                    if ($.trim(this.value) == "") {
+                        $this.text(lastName)
+
+                    } else {
+                        $this.text(this.value);
+                    }
+
+                },
+
+                keyup: function (e) {
+                    if (e.which === 13) {
+                        $input.blur();
+
+                        if ($.trim(this.value) == "") {
+                            $this.text(lastName)
+                        } else {
+                            updateStores(valueID, $this.text(), $this);
+
+                        }
+                    }
+
+
+                    if (e.which === 27) {
+                        $input.blur();
+                        $this.text(lastName)
+                    }
+
+
+                }
+            }).appendTo($this.empty()).focus();
+        });
+
+
+    });
+
+
+    function addStore() {
+        if ($("#available_on_stores_stores_name").val() == "") {
+            alert('{{ text_empty }}');
+            return false;
+        }
+
+        var btn = $("#add_stores").button('loading');
+        $.post("{{ add_stores }}", {available_on_stores_stores_name: $("#available_on_stores_stores_name").val()}, function (data) {
+            console.log(data)
+            if (data.result) {
+
+                $(btn).button('reset');
+
+                $("#dateStore").find('tbody')
+                    .append($('<tr>')
+                        .append($('<td>').text(data.lastID))
+                        .append($('<td>').text(data.name))
+                        .append($('<td>').text('Now'))
+                        .append($('<td>').html(' <td><button onclick="deleteStores(' + data.lastID + ',this)" type="button" class="btn btn-danger Del" aria-label="Left Align"><span class="fa fa-trash-o" aria-hidden="true"></span></button></td>\n'))
+                    );
+                $("#available_on_stores_stores_name").val('');
+            }
+
+
+        }, 'json');
+
+        return false;
+    }
+
+    function deleteStores(id, btn) {
+
+
+        $(btn).button('loading');
+
+
+        $.post("{{ get_count_Deleted }}", {id: id}, function (data) {
+
+            console.log(data);
+            var msg = ('{{ text_delete }} {{ text_clciked }} -> ' + data.dashboard_count + '\n{{ text_urls }}      -> ' + data.url_count);
+
+
+            var answer = confirm('{{ entry_delete_messag_text }} \n' + msg);
+
+            if (!answer) {
+                $(btn).button('reset');
+                return;
+            }
+
+            $.post("{{ delete_stores }}", {id: id}, function (data) {
+                $(btn).button('reset');
+                $(btn).closest('tr').fadeOut("slow", function () {
+                });
+                // $(btn).closest('tr').hide();
+                // console.log(data);
+                if (data.result == 1) {
+                    $(btn).closest('tr').fadeOut("slow", function () {
+                    });
+                }
+
+            }, 'json');
+
+
+        }, 'json');
+
+
+    }
+
+
+    function updateStores(id, name, obj) {
+
+        $('#alertJson').html('<i class="fa fa-spinner" style="font-size:24px;color:red"></i>');
+        var obj = $(obj).closest('tr');
+
+
+        $.post("{{ update_stores }}", {id: id, name: name}, function (data) {
+
+            if (data.result == 1) {
+                $('#alertJson').html(' <div class="alert alert-success" role="alert">Success Update ' + name + '</div>\n');
+                obj.css("background-color", "#cbeacb");
+
+            } else {
+                obj.css("background-color", "#f5c1bb");
+                $('#alertJson').html(' <div class="alert alert-danger" role="alert">Error Update ' + name + '</div>\n');
+
+            }
+
+
+            obj.fadeOut(2000, function () {
+                obj.css("background-color", "#FFFFFF").fadeIn(1000);
+            });
+
+
+        }, 'json');
+    }
+
+
+</script>
+
+
+{{ footer }}
