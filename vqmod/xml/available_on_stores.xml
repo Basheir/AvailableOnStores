@@ -16,7 +16,7 @@
 				]]></search>
             <add position="after"><![CDATA[
 
-            <li><a href="#available_on_stores" data-toggle="tab">Available on Stores</a></li>
+            <li><a href="#available_on_stores" data-toggle="tab">{{available_on_stores_tab_title}}</a></li>
 				]]></add>
         </operation>
 
@@ -47,12 +47,10 @@
 
                     {% endif %}
 
-
-
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-location">{{val.name}}</label>
                          <div class="col-sm-10">
-                         <input type="text" name="available-on-stores-input[{{val.stores_id}}]" value=" {{rows_available_on_stores_urls[val.stores_id]}}" placeholder="{{val.name}}" id="input-location" class="form-control">
+                         <input type="text" name="available-on-stores-input[{{val.stores_id}}]" value="{{rows_available_on_stores_urls[val.stores_id]}}" placeholder=" URL:{{val.name}}" id="input-location" class="form-control">
                         </div>
                      </div>
 
@@ -89,18 +87,20 @@
             <add><![CDATA[
 
         $this->load->model('extension/module/available_on_stores');
-	    $product_id = (int)$this->request->get['product_id'];
-	    $result = $this->model_extension_module_available_on_stores->getUrls($product_id);
-	    $items = array();
-	    foreach ($result as $key    =>  $value){
-		    $items[$value['stores_id']] = $value['url'];
-	    }
 
-	    $data['rows_available_on_stores_urls'] =  $items;
-        $data['rows_available_on_stores'] = $this->model_extension_module_available_on_stores->getStores();
+         if(isset($this->request->get['product_id'])){
+            $product_id = (int)$this->request->get['product_id'];
+            $result = $this->model_extension_module_available_on_stores->getUrls($product_id);
+            $items = array();
+            foreach ($result as $key    =>  $value){
+                $items[$value['stores_id']] = $value['url'];
+            }
+            $data['rows_available_on_stores_urls'] =  $items;
+       }
 
-
-        var_dump($data);
+           $data['rows_available_on_stores'] = $this->model_extension_module_available_on_stores->getStores();
+           $this->load->language('extension/module/available_on_stores_append');
+           $data['available_on_stores_tab_title'] = $this->language->get('available_on_stores_tab_title');
 
 
             ]]></add>

@@ -26,7 +26,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores_append.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores_append.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/admin/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/admin/language/ar/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/admin/language/en-gb/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/admin/model/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/admin/view/template/extension/module/available_on_stores.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/admin/view/template/extension/module/available_on_stores_dashboard.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores_dashboard.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/catalog/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +57,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$USER_HOME$/Downloads/opencart-phpstorm-master/OpenCart Autocomplete" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1bemtdyw8q0JYoQGKCODj5KHMGV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -56,7 +72,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/language/en-gb/extension/module" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/admin/language/en-gb/extension/module" />
+      <recent name="$PROJECT_DIR$/admin/language/ar/extension/module" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vqmod/xml" />
+      <recent name="$PROJECT_DIR$/vqmod" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -68,7 +96,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589001153634</updated>
-      <workItem from="1589001174233" duration="815000" />
+      <workItem from="1589001174233" duration="954000" />
+      <workItem from="1589038810975" duration="6848000" />
+      <workItem from="1589064084854" duration="2033000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -82,7 +112,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠٠٢" />
       <updated>1589001935974</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL؜٠٠٠٠٣" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
+      <created>1589002004325</created>
+      <option name="number" value="LOCAL؜٠٠٠٠٣" />
+      <option name="presentableId" value="LOCAL؜٠٠٠٠٣" />
+      <updated>1589002004325</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +146,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -118,14 +155,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="630" y="162" key="#Deployment" timestamp="1589001665658">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="630" y="161" key="#Deployment" timestamp="1589039373843">
+      <screen x="0" y="23" width="1920" height="940" />
     </state>
+    <state x="630" y="161" key="#Deployment/0.23.1920.940@0.23.1920.940" timestamp="1589039373843" />
     <state x="630" y="162" key="#Deployment/0.23.1920.947@0.23.1920.947" timestamp="1589001665658" />
-    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2" timestamp="1589001935880">
+    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2" timestamp="1589002004235">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
-    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589001935880" />
+    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589002004235" />
     <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589001849878" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
       <screen x="0" y="23" width="1920" height="947" />
@@ -135,11 +173,19 @@
       <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="851" y="362" key="MultipleFileMergeDialog/0.23.1920.947@0.23.1920.947" timestamp="1589001439950" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589001939323">
+    <state x="469" y="127" key="SettingsEditor" timestamp="1589045022244">
+      <screen x="0" y="23" width="1920" height="947" />
+    </state>
+    <state x="469" y="127" key="SettingsEditor/0.23.1920.947@0.23.1920.947" timestamp="1589045022244" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589002033502">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589001939323" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589002033502" />
     <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589001859361" />
+    <state x="625" y="139" width="670" height="676" key="search.everywhere.popup" timestamp="1589063706878">
+      <screen x="0" y="23" width="1920" height="947" />
+    </state>
+    <state x="625" y="139" width="670" height="676" key="search.everywhere.popup/0.23.1920.947@0.23.1920.947" timestamp="1589063706878" />
     <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589001756244">
       <screen x="0" y="23" width="1920" height="947" />
     </state>

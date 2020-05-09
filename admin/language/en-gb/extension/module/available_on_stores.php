@@ -57,3 +57,4 @@ $_['text_row_date'] 		  = 'Date';
 
  // helper
 $_['text_help_edit'] 		  = 'Click her to edit Name';
+

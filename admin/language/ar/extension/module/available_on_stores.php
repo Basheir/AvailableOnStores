@@ -8,7 +8,7 @@
 $_['text_version'] = '1.3.0';
 
 // Heading
-$_['heading_title']    		= 'Available on Stores';
+$_['heading_title']    		= 'Available on Stores - متوفر  لدى';
 $_['header_customer_message'] = ' اعدادات المستخدم';
 
 
@@ -59,3 +59,4 @@ $_['text_row_date'] 		= 'تاريخ';
 
 // helper
 $_['text_help_edit'] 		= 'انقر هنا لتعديل المسمى';
+
