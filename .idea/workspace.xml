@@ -25,17 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
-      <change afterPath="$PROJECT_DIR$/upload/admin/controller/extension/module/available_on_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/admin/language/ar/extension/module/available_on_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/admin/language/en-gb/extension/module/available_on_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/admin/model/extension/module/available_on_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/admin/view/template/extension/module/available_on_stores.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/admin/view/template/extension/module/available_on_stores_dashboard.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/catalog/controller/extension/module/available_on_stores.php" afterDir="false" />
+    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" beforeDir="false" afterPath="$PROJECT_DIR$/install.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +39,8 @@
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,8 +68,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589001153634</updated>
-      <workItem from="1589001174233" duration="597000" />
+      <workItem from="1589001174233" duration="739000" />
     </task>
+    <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
+      <created>1589001850060</created>
+      <option name="number" value="LOCAL؜٠٠٠٠١" />
+      <option name="presentableId" value="LOCAL؜٠٠٠٠١" />
+      <updated>1589001850060</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,14 +106,20 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="23" width="993" height="947" key="CommitChangelistDialog2" timestamp="1589001427092">
+    <state x="630" y="162" key="#Deployment" timestamp="1589001665658">
       <screen x="0" y="23" width="1920" height="947" />
     </state>
-    <state x="463" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589001427092" />
+    <state x="630" y="162" key="#Deployment/0.23.1920.947@0.23.1920.947" timestamp="1589001665658" />
+    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2" timestamp="1589001849878">
+      <screen x="0" y="23" width="1920" height="947" />
+    </state>
+    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589001849878" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
       <screen x="0" y="23" width="1920" height="947" />
     </state>
@@ -124,5 +128,13 @@
       <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="851" y="362" key="MultipleFileMergeDialog/0.23.1920.947@0.23.1920.947" timestamp="1589001439950" />
+    <state x="560" y="228" key="Vcs.Push.Dialog.v2" timestamp="1589001859361">
+      <screen x="0" y="23" width="1920" height="947" />
+    </state>
+    <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589001859361" />
+    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589001756244">
+      <screen x="0" y="23" width="1920" height="947" />
+    </state>
+    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589001756244" />
   </component>
 </project>
