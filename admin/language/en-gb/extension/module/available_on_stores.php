@@ -44,6 +44,7 @@ $_['text_row_id'] 		    = 'ID';
 $_['text_row_name'] 		  = 'Name';
 $_['text_row_date'] 		  = 'Date';
 $_['text_row_delete'] 		= 'Delete';
+$_['text_row_store_id'] 		= 'ID';
 
 
 

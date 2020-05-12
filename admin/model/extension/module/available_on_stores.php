@@ -15,16 +15,30 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 
 	public function getStores() {
-
-
 		return $this->db->query( "SELECT * from `" . DB_PREFIX . "available_on_stores` ORDER BY `stores_id` ASC;" )->rows;
+	}
+
+
+
+	public function getStoresByNameJson() {
+		$stores =  $this->db->query( "SELECT `name`,`stores_id` from `" . DB_PREFIX . "available_on_stores` ORDER BY `stores_id` ASC;" )->rows;
+
+      $results = array();
+
+      foreach ($stores as $value) {
+          $results[$value['stores_id']] = json_decode($value['name'],true);
+      }
+
+		return $results;
 
 	}
 
 
 	public function addStores($name) {
 
-	return $this->db->query( "INSERT INTO " . DB_PREFIX. "available_on_stores (`name`) VALUES ('". $this->db->escape($name) . "')" );
+	    $name =  json_encode($name);
+
+	   return $this->db->query( "INSERT INTO " . DB_PREFIX. "available_on_stores (`name`) VALUES ('". $this->db->escape($name) . "')" );
 
 	}
 
@@ -48,7 +62,6 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 
 	public function updateStores($name,$id) {
-
 
 		 $this->db->query( "UPDATE  `" . DB_PREFIX
 		                  . "available_on_stores` SET `name` = '"
@@ -195,6 +208,18 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 		return $query->row['product_id'];
 	}
 
+
+
+
+    public function getLanguages() {
+        $this->load->model( 'localisation/language' );
+        $languages = $this->model_localisation_language->getLanguages();
+        $allLanguages=array();
+        foreach ($languages as $lang){
+            $allLanguages[]= array("code"=>$lang['code'],"name"=>$lang['name'],'language_id'=>$lang['language_id']) ;
+        }
+        return $allLanguages;
+    }
 
 
 

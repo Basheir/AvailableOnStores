@@ -1,3 +1,4 @@
+
 {{ header }}
 {{ column_left }}
 
@@ -58,24 +59,14 @@
                         <div class="container">
                             <div class="row">
 
-                                {#A#}
-                                <div class="col-md-6 ">
-                                    <div class="row" id="groubChatID">
-                                        <div class="input-group col-md-12">
-                                            <span class="input-group-addon"
-                                                  id="basic-addon1">{{ text_input_store }}</span>
-                                            <input type="text" name="available_on_stores_stores_name"
-                                                   id="available_on_stores_stores_name"
-                                                   value="" placeholder="{{ text_input_store }}"
-                                                   class="form-control"/>
-                                            <span class="input-group-btn"><button id="add_stores" class="btn btn-info "
-                                                                                  type="button"><i
-                                                            class="fa fa-address-card"></i></button> </span>
-                                        </div>
-                                        <br>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <button type="button" id="addStore" class="btn btn-primary" data-toggle="modal" data-target="#addStoreModal" data-whatever="addstore">{{ text_input_store }}</button>
 
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -83,46 +74,41 @@
                     </div>
 
 
+
+                            {#                    بيانات المتاجر#}
+
                     <div class="container">
                         <div id="alertJson" role="alert"></div>
 
-                        <table id="dateStore" class="table table-bordered table-hover" style="width:100%">
-                            <tr>
-                                <th>{{ text_row_id }}</th>
-                                <th>{{ text_row_name }}</th>
+
+
+
+                        <table id="tableDateStore" class="table table-bordered table-hover" style="width:100%">
+                            <thead>
+                                <th>{{ text_row_store_id }}</th>
+                                {% for key,val in languages %}
+                                <th>{{ val.code }}</th>
+                                {% endfor %}
                                 <th>{{ text_row_date }}</th>
                                 <th>{{ text_row_delete }}</th>
-                            </tr>
-
-                            {% for row in rows %}
-                                <tr>
-                                    <td>{{ row.stores_id }}</td>
-                                    <td valueID="{{ row.stores_id }}" data-name="{{ row.name }}" class="EditName"><i
-                                                class="fa fa-edit text-primary"
-                                                title="{{ text_help_edit }}"></i> {{ row.name }} </td>
-                                    <td>{{ row.date|date('Y-m-d') }}</td>
-                                    <td>
-                                        <button onclick="deleteStores('{{ row.stores_id }}',this)" type="button"
-                                                class="btn btn-danger Del" aria-label="Left Align"><span
-                                                    class="fa fa-trash-o" aria-hidden="true"></span></button>
-                                    </td>
-                                </tr>
-                            {% endfor %}
+                            </thead>
+                            <tbody></tbody>
                         </table>
+
+                        <div class="border border-success" id="loadingMessage"><h3 class="text-center">Loading.....</h3></div>
+
 
                     </div>
 
-
                     <hr>
-
-
+{#                    AAA -  {{ dump(module_available_on_stores_status) }}#}
                     <div class="row">
                         <label class="col-sm-2 control-label"
                                for="input-module_hello_world_status">{{ entry_status }}</label>
                         <div class="col-sm-10">
-                            <select name="available_on_stores_status" id="available_on_stores_status"
-                                    class="form-control">
-                                {% if available_on_stores_status %}
+                            <select name="module_available_on_stores_status" id="module_available_on_stores_status" class="form-control">
+
+                                {% if module_available_on_stores_status %}
                                     <option value="1" selected>{{ text_enabled }}</option>
                                     <option value="0">{{ text_disabled }}</option>
                                 {% else %}
@@ -139,74 +125,182 @@
         </div>
 
 
+
     </form>
+
+
+
+
+    <div class="modal fade" id="addStoreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">add Store</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        {% for key,val in languages %}
+
+                            <div class="form-group row">
+                                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">{{ text_input_store }} - {{ val.code }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" data-title="{{ text_input_store }} - {{ val.code }}" data-language_id="{{ val.language_id }}" name="available_on_stores_stores_name[{{val.language_id}}]" id="available_on_stores_stores_name_add[{{val.language_id}}]"  value="" placeholder="{{ text_input_store }}"class="form-control available_on_stores inputStoreAdd"/>
+
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button " class="btn btn-primary addStoreBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editStoreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Store</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        {% for key,val in languages %}
+
+                            <div class="form-group row">
+                                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">{{ text_input_store }} - {{ val.code }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" data-title="{{ text_input_store }} - {{ val.code }}" data-language_id="{{ val.language_id }}" name="available_on_stores_stores_name[{{val.language_id}}]" id="available_on_stores_stores_name_edit[{{val.language_id}}]"  value="" placeholder="{{ text_input_store }}"class="form-control available_on_stores inputStoreEdit"/>
+
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                        <div class="form-group row invisible">
+                            <label for="colFormLabelSm"  class="col-sm-2 col-form-label col-form-label-sm">ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" data-language_id="{{ val.language_id }}" name="id"  id="available_on_stores_stores_id"   value="" class="form-control inputStoreEdit"/>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button " class="btn btn-primary editStoreBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 <script type="text/javascript">
 
 
+
+    var allDataJson = {};
+
     $(document).ready(function () {
 
-        // getStoresUrl();
+           // getStoresUrl();
+           loadingStore();
 
+        // Delete Store
+        $(document).on("click","button.deleteStore",function(e) {
 
-        $('#available_on_stores_stores_name').keypress(function (e) {
-            if (e.which === 13) {
+            var btn = $(this);
+            var tr = $(this).closest('tr');
+            var id = tr.attr('data-storeID');
 
-                addStore();
-                return false;    //<---- Add this line
-            }
-        });
+            $(btn).button('loading');
+            $.post("{{ get_count_Deleted }}", {id: id}, function (data) {
 
+                var msg = ('{{ text_delete }} {{ text_clciked }} -> ' + data.dashboard_count + '\n{{ text_urls }}      -> ' + data.url_count);
+                var answer = confirm('{{ entry_delete_messag_text }} \n' + msg);
 
-        $("#add_stores").click(function () {
-
-            addStore();
-        });
-
-
-        $(".EditName").on('click', function () {
-            var $this = $(this);
-            var valueID = $this.attr('valueID');
-            var lastName = $(this).data("name")
-
-            var $input = $('<input>', {
-                value: $this.text(),
-                width: '100%',
-                height: '30px',
-                type: 'text',
-                blur: function () {
-
-                    if ($.trim(this.value) == "") {
-                        $this.text(lastName)
-
-                    } else {
-                        $this.text(this.value);
-                    }
-
-                },
-
-                keyup: function (e) {
-                    if (e.which === 13) {
-                        $input.blur();
-
-                        if ($.trim(this.value) == "") {
-                            $this.text(lastName)
-                        } else {
-                            updateStores(valueID, $this.text(), $this);
-
-                        }
-                    }
-
-
-                    if (e.which === 27) {
-                        $input.blur();
-                        $this.text(lastName)
-                    }
-
-
+                if (!answer) {
+                    $(btn).button('reset');
+                    return;
                 }
-            }).appendTo($this.empty()).focus();
+
+                $.post("{{ delete_stores }}", {id: id}, function (data) {
+                    $(btn).button('reset');
+                    $(btn).closest('tr').fadeOut("slow", function () {
+                    });
+                    if (data.result == 1) {
+                        $(btn).closest('tr').fadeOut("slow", function () {
+                        });
+                    }
+
+                }, 'json');
+
+
+            }, 'json');
+
+        });
+
+
+        // Edit Store
+        $(document).on("click","button.editStore",function(e) {
+
+
+            $('.inputStoreEdit').val("");
+            var btn = $(this);
+            var tr = $(this).closest('tr');
+            var id = tr.attr('data-storeID');
+            var dataKey = tr.attr('data-key');
+            var jsonName = $.parseJSON(allDataJson[dataKey].name);
+
+            $.each(jsonName, function( key, value ) {
+                $(this).val(jsonName[key]);
+                console.log(jsonName[key])
+
+                $("#available_on_stores_stores_name_edit\\["+key+"\\]").val(jsonName[key]);
+
+
+            });
+
+
+            $("#available_on_stores_stores_id").val(id);
+
+            $('#editStoreModal').modal('show');
+
+        });
+
+
+        // Add Stor
+        $('#addStoreModal').on('show.bs.modal', function (e) {
+
+            var trr = $(e).closest('tr');
+            var storeID   =   $(trr).data('storeID');
+            var storeName =   $(trr).find('.editName');
+            console.log(e.target);
+
+            $.each( storeName, function( key, value ) {
+                console.log($(value).data('storename'))
+                $("#available_on_stores_stores_name["+key+"]").val("ghghfghfgh");
+            });
+
+        })
+
+
+        $(".editStoreBtn").on("click",function(e) {
+            updateStores();
+        });
+
+
+        $(".addStoreBtn").on("click",function(e) {
+            addStore();
         });
 
 
@@ -214,98 +308,94 @@
 
 
     function addStore() {
-        if ($("#available_on_stores_stores_name").val() == "") {
-            alert('{{ text_empty }}');
-            return false;
+
+        var isSend = true;
+        $.each($(".inputStoreAdd"),function( key, value ) {
+           if($(value).val().trim() ==""){
+               alert($(value).data('title'));
+               isSend =  false;
+           }
+        });
+
+
+        $("select#module_available_on_stores_status option").each(function() {
+             this.selected = ($(this).val() == 1);
+        });
+
+
+        if (isSend === false){
+            return ;
         }
 
-        var btn = $("#add_stores").button('loading');
-        $.post("{{ add_stores }}", {available_on_stores_stores_name: $("#available_on_stores_stores_name").val()}, function (data) {
-            console.log(data)
-            if (data.result) {
 
-                $(btn).button('reset');
+        $(".addStoreBtn").button('loading');
+        $.post("{{ add_stores }}",$( ".inputStoreAdd" ).serialize(), function (data) {
+           loadingStore();
+            $('#addStoreModal').modal('hide');
+            $(".inputStoreAdd").val("");
+            $(".addStoreBtn").button('reset');
 
-                $("#dateStore").find('tbody')
-                    .append($('<tr>')
-                        .append($('<td>').text(data.lastID))
-                        .append($('<td>').text(data.name))
-                        .append($('<td>').text('Now'))
-                        .append($('<td>').html(' <td><button onclick="deleteStores(' + data.lastID + ',this)" type="button" class="btn btn-danger Del" aria-label="Left Align"><span class="fa fa-trash-o" aria-hidden="true"></span></button></td>\n'))
-                    );
-                $("#available_on_stores_stores_name").val('');
-            }
-
-
-        }, 'json');
-
-        return false;
-    }
-
-    function deleteStores(id, btn) {
-
-
-        $(btn).button('loading');
-
-
-        $.post("{{ get_count_Deleted }}", {id: id}, function (data) {
-
-            console.log(data);
-            var msg = ('{{ text_delete }} {{ text_clciked }} -> ' + data.dashboard_count + '\n{{ text_urls }}      -> ' + data.url_count);
-
-
-            var answer = confirm('{{ entry_delete_messag_text }} \n' + msg);
-
-            if (!answer) {
-                $(btn).button('reset');
-                return;
-            }
-
-            $.post("{{ delete_stores }}", {id: id}, function (data) {
-                $(btn).button('reset');
-                $(btn).closest('tr').fadeOut("slow", function () {
-                });
-                // $(btn).closest('tr').hide();
-                // console.log(data);
-                if (data.result == 1) {
-                    $(btn).closest('tr').fadeOut("slow", function () {
-                    });
-                }
-
-            }, 'json');
-
-
-        }, 'json');
-
+        });
 
     }
+    function updateStores() {
 
 
-    function updateStores(id, name, obj) {
-
-        $('#alertJson').html('<i class="fa fa-spinner" style="font-size:24px;color:red"></i>');
-        var obj = $(obj).closest('tr');
-
-
-        $.post("{{ update_stores }}", {id: id, name: name}, function (data) {
+        $(".editStoreBtn").button("loading");
+        $.post("{{ update_stores }}", $( ".inputStoreEdit" ).serialize(), function (data) {
 
             if (data.result == 1) {
-                $('#alertJson').html(' <div class="alert alert-success" role="alert">Success Update ' + name + '</div>\n');
-                obj.css("background-color", "#cbeacb");
+                $('#alertJson').html(' <div class="alert alert-success" role="alert">Success Update</div>\n');
+                loadingStore();
+                $('#editStoreModal').modal('hide');
 
             } else {
-                obj.css("background-color", "#f5c1bb");
-                $('#alertJson').html(' <div class="alert alert-danger" role="alert">Error Update ' + name + '</div>\n');
-
+                $('#alertJson').html(' <div class="alert alert-danger" role="alert">Error Update</div>\n');
             }
 
+            $(".editStoreBtn").button("reset");
 
-            obj.fadeOut(2000, function () {
-                obj.css("background-color", "#FFFFFF").fadeIn(1000);
-            });
 
 
         }, 'json');
+    }
+    function addRowStoreToTable(data,key) {
+
+        var nameJson = $.parseJSON(data.name);
+        // console.log(nameJson)
+
+        $("#tableDateStore").find('tbody')
+                .append($('<tr data-storeID="'+data.stores_id+'" data-key="'+key+'">')
+                .append($('<td>').text(data.stores_id))
+                {% for key, val in languages %}
+                .append($('<td class="editName"  data-storeName="'+nameJson["{{ val.language_id }}"]+'"> ').text(nameJson["{{ val.language_id }}"]))
+                {% endfor %}
+                .append($('<td>').text(data.date))
+                .append($('<td>').html('<button onclick="" type="button" class="btn btn-danger deleteStore" aria-label="Left Align"><span class="fa fa-trash-o" aria-hidden="true"></span></button> <button  type="button" class="btn btn-success editStore" aria-label="Left Align"><span class="fa fa-edit" aria-hidden="true"></span></button>')))
+
+    }
+    function loadingStore() {
+
+        $('#loadingMessage').show();
+        $('#tableDateStore').hide();
+        $('#tableDateStore tbody').empty();
+        $('.inputStore').val('');
+        allDataJson = {};
+
+
+
+        var btn = $(".add_stores").button('loading');
+
+        $.getJSON( "{{ get_stores_json }}", function( json ) {
+            $('#loadingMessage').hide();
+            $('#tableDateStore').show();
+            $(btn).button('reset');
+            allDataJson =json;
+            $.each(json,function( key, value ) {
+                addRowStoreToTable(value,key);
+            });
+        });
+
     }
 
 

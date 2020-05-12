@@ -13,15 +13,19 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
         $this->load->language('extension/module/available_on_stores');
+        $this->load->model('setting/setting');
+
+
 
         $this->document->setTitle($this->language->get('heading_title'));
 
-        $this->load->model('setting/setting');
+
+
+
 
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-            $this->model_setting_setting->editSetting('available_on_stores', $this->request->post);
+            $this->model_setting_setting->editSetting('module_available_on_stores', $this->request->post);
             $this->session->data['success'] = $this->language->get('text_success');
-
             $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=module', true));
         }
 
@@ -50,13 +54,9 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
 
-        //        $this->load->model('setting/setting');
-        //        $setting = $this->model_setting_setting->getSetting('available_on_stores');
-
-
-
         $data['add_stores']    = html_entity_decode($this->url->link('extension/module/available_on_stores/addStores', 'user_token=' . $this->session->data['user_token'], 'SSL'));
         $data['get_stores']    = html_entity_decode($this->url->link('extension/module/available_on_stores/getStores', 'user_token=' . $this->session->data['user_token'], 'SSL'));
+        $data['get_stores_json']    = html_entity_decode($this->url->link('extension/module/available_on_stores/getStoresJson', 'user_token=' . $this->session->data['user_token'], 'SSL'));
         $data['delete_stores'] = html_entity_decode($this->url->link('extension/module/available_on_stores/deleteStores', 'user_token=' . $this->session->data['user_token'], 'SSL'));
         $data['update_stores'] = html_entity_decode($this->url->link('extension/module/available_on_stores/updateStores', 'user_token=' . $this->session->data['user_token'], 'SSL'));
         $data['url_dashboard'] = html_entity_decode($this->url->link('extension/module/available_on_stores/dashboard', 'user_token=' . $this->session->data['user_token'], 'SSL'));
@@ -64,32 +64,29 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
 
-        //		var_dump($r);
-        //admin/model/extension/module/available_on_stores.php
-        //		$this->load->model('extension/module/available_on_stores');
-        //		$data['rows'] = $this->model_extension_module_available_on_stores->getStoresUrl();
-        $data['rows'] = $this->getStores();
-
-
-
-
-        //الكي الخاص باالتطبيق
-        if(isset($this->request->post['available_on_stores_status'])) {
-            $data['available_on_stores_status'] = $this->request->post['available_on_stores_status'];
-        } elseif ($this->config->get('available_on_stores_status')){
-            $data['available_on_stores_status'] = $this->config->get('available_on_stores_status');
-        } else{
-            $data['available_on_stores_status'] = '';
+        /*Admin Module Status*/
+        if (isset($this->request->post['module_available_on_stores_status'])) {
+            $data['module_available_on_stores_status'] = $this->request->post['module_available_on_stores_status'];
+        } elseif ($this->config->get('module_available_on_stores_status')) {
+            $data['module_available_on_stores_status'] = $this->config->get('module_available_on_stores_status');
+        } else {
+            $data['module_available_on_stores_status'] = 0;
         }
+
+
+
 
 
 
         $data['header'] =      $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] =      $this->load->controller('common/footer');
+        $data['languages'] =      $this->getLanguages();
+
 
 
         $this->response->setOutput($this->load->view('extension/module/available_on_stores', $data));
+
     }
 
 
@@ -102,10 +99,6 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
         $this->model_setting_event->addEvent( 'available_on_stores_post_add', 'admin/model/catalog/product/addProduct/after', 'extension/module/available_on_stores/addUrlsEvent' );
         $this->model_setting_event->addEvent( 'available_on_stores_post_edit', 'admin/model/catalog/product/editProduct/after', 'extension/module/available_on_stores/editUrlsEvent' );
         $this->model_setting_event->addEvent( 'available_on_stores_post_delete', 'admin/model/catalog/product/deleteProduct/after', 'extension/module/available_on_stores/deleteProductEvent' );
-
-        $this->load->model('setting/setting');
-        $this->model_setting_setting->editSetting('module_available_on_stores', ['module_available_on_stores_status'=>1]);
-
 
 
         $this->db->query("CREATE TABLE IF NOT EXISTS `".DB_PREFIX ."available_on_stores` (
@@ -142,9 +135,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
     public function uninstall(){
-        $this->load->model('setting/setting');
-        $this->model_setting_setting->deleteSetting('module_available_on_stores');
-        $this->model_setting_setting->deleteSetting('available_on_stores');
+        $this->load->model( 'setting/event' );
         $this->model_setting_event->deleteEventByCode('available_on_stores_post_add' );
         $this->model_setting_event->deleteEventByCode('available_on_stores_post_edit' );
         $this->model_setting_event->deleteEventByCode('available_on_stores_post_delete' );
@@ -209,16 +200,14 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode([ 'result' => $result ]));
 
-
-
-
     }
 
     public function updateStores() {
 
+        $name =  json_encode($this->request->post['available_on_stores_stores_name']);
 
         $this->load->model('extension/module/available_on_stores');
-        $result = $this->model_extension_module_available_on_stores->updateStores($this->request->post['name'],(int)$this->request->post['id']);
+        $result = $this->model_extension_module_available_on_stores->updateStores($name,(int)$this->request->post['id']);
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode(['result' => $result ]));
 
@@ -251,16 +240,13 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
 
-
-
-
     function addUrlsEvent($route, $data){
 
         $this->load->model('setting/setting');
         $this->load->model('extension/module/available_on_stores');
 
 
-        if (!$this->config->get('available_on_stores_status')){
+        if (!$this->config->get('module_available_on_stores_status')){
             return;
         }
 
@@ -295,7 +281,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
         $this->load->model('setting/setting');
 
-        if (!$this->config->get('available_on_stores_status')){
+        if (!$this->config->get('module_available_on_stores_status')){
             return;
         }
 
@@ -332,7 +318,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
         $this->load->model('setting/setting');
 
-        if (!$this->config->get('available_on_stores_status')){
+        if (!$this->config->get('module_available_on_stores_status')){
             return;
         }
 
@@ -347,6 +333,10 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
      */
 
     function dashboard(){
+
+
+
+        $language_id = $this->config->get('config_language_id');
 
         if (isset($this->request->get['page'])) {
             $page = $this->request->get['page'];
@@ -363,8 +353,6 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
         $this->load->model('extension/module/available_on_stores');
 
 
-
-
         //  جلب الستورات مثلا سوق كوم او ايبياي او امازون مسجلة بقاعدة البيانات
         $stores = $this->model_extension_module_available_on_stores->getStores();
 
@@ -372,18 +360,18 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
         $array_stores = array();
         foreach ($stores as $store ) {
+
+            $storeName = json_decode($store['name'],true)[$language_id];
+
             $stores_id = $store['stores_id'];
-            $array_stores[$stores_id]=$store['name'];
+            $array_stores[$stores_id]=$storeName;
         }
 
 
 
 
 
-
         $results_dashboard =  $this->model_extension_module_available_on_stores->getDashboardByPage($page, $limit);
-
-
 
 
 
@@ -436,6 +424,58 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
         $this->response->setOutput($this->load->view('extension/module/available_on_stores_dashboard', $data));
 
     }
+
+
+    public function getLanguages() {
+
+        $this->load->model( 'localisation/language' );
+        $languages = $this->model_localisation_language->getLanguages();
+        $allLanguages=array();
+        foreach ($languages as $lang){
+            $allLanguages[]= array("code"=>$lang['name'],'language_id'=>$lang['language_id']) ;
+        }
+        return $allLanguages;
+    }
+
+
+
+
+    public function getStoresJson() {
+        $this->load->model('extension/module/available_on_stores');
+        $this->load->model( 'localisation/language' );
+        $stores = $this->model_extension_module_available_on_stores->getStores();
+
+        $allStores = array();
+
+        foreach ($stores as $store){
+
+            if(!$this->is_valid_json($store['name'])){
+                $languages = $this->model_localisation_language->getLanguages();
+
+                foreach ($languages as $lang){
+                    $allLanguages= array($lang['language_id']=>$store['name']) ;
+                }
+                $jsonName = json_encode($allLanguages);
+            }
+            else{
+                $jsonName= $store['name'];
+            }
+
+            $allStores[]= array("stores_id"=>$store['stores_id'],'name'=>$jsonName,'date'=>$store['date']) ;
+        }
+
+
+//        var_dump($stores);
+
+        echo json_encode($allStores);
+    }
+
+
+
+    function is_valid_json( $raw_json ){
+        return ( json_decode( $raw_json , true ) == NULL ) ? false : true ; // Yes! thats it.
+    }
+
 
 }
 

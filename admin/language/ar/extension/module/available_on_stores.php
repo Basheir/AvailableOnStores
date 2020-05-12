@@ -44,6 +44,7 @@ $_['text_row_id'] 		    = 'نقرات';
 $_['text_row_name'] 		= 'الاسم';
 $_['text_row_date'] 		= 'تاريخ';
 $_['text_row_delete'] 		= 'حذف';
+$_['text_row_store_id'] 		= 'ID';
 
 
 

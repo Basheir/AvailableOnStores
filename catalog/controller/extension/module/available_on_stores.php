@@ -49,10 +49,9 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
 
     public function getStoreUrls() {
 
-
         $statUS = $this->config->get('available_on_stores_status');
         $theme = $this->config->get('config_theme');
-
+        $language_id = $this->config->get('config_language_id');
 
         if ($statUS) {
             if (isset($this->request->get['product_id'])
@@ -61,18 +60,27 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
             ) {
 
                 $id = (int) $this->request->get['product_id'];
-                $result = $this->db->query("SELECT *
 
-												FROM
-												`".DB_PREFIX."available_on_stores_urls` `".DB_PREFIX."available_on_stores_urls`
+
+                $result = $this->db->query("SELECT * FROM `".DB_PREFIX."available_on_stores_urls` `".DB_PREFIX."available_on_stores_urls`
 												INNER JOIN  `oc_available_on_stores`
 												ON `".DB_PREFIX
                   ."available_on_stores_urls`.`stores_id` = `".DB_PREFIX."available_on_stores`.
 												`stores_id` WHERE `product_id` = '$id' ")->rows;
 
 
+                $results=array();
+                foreach ($result as $value) {
+
+                    $name = json_decode($value['name'],true)[$language_id];
+
+                    $results[] = array('url'=>$value['url'],'stores_id'=>$value['stores_id'],'product_id'=>$value['product_id'],'name'=>$name);
+
+                }
+
+
                 if ($this->db->countAffected() > 0) {
-                    $json = ['result' => $result, 'theme' => $theme];
+                    $json = ['result' => $results, 'theme' => $theme];
                 } else {
                     $json = ['result' => false, 'theme' => $theme];
 
