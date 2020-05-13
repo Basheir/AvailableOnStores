@@ -60,3 +60,8 @@ $_['text_row_date'] 		  = 'Date';
 $_['text_help_edit'] 		  = 'Click her to edit Name';
 $_['text_help_count_clicked'] 		  = 'count clicked Url';
 
+
+// TITLE MODEl
+$_['text_help_add_store'] = 'Add Store';
+$_['text_help_edit_store'] = 'Edit Store';
+

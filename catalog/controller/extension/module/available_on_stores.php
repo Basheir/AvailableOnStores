@@ -49,7 +49,13 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
 
     public function getStoreUrls() {
 
-        $statUS = $this->config->get('available_on_stores_status');
+        $statUS = $this->config->get('module_available_on_stores_status');
+        if (!$statUS) {
+            echo  'AvailableOnStores Module Not enabled';
+            return null;
+        }
+
+
         $theme = $this->config->get('config_theme');
         $language_id = $this->config->get('config_language_id');
 
@@ -92,8 +98,6 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
 
             }
 
-        } else {
-            echo 'Module Not enabled';
         }
 
 

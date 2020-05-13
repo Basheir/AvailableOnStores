@@ -8,7 +8,7 @@
 $_['text_version'] = '2.0.0';
 
 // Heading
-$_['heading_title']    		= 'Available on Stores - متوفر  لدى';
+$_['heading_title']    		= 'Available on Stores - متوفر في متجر';
 $_['header_customer_message'] = ' اعدادات المستخدم';
 
 
@@ -60,5 +60,9 @@ $_['text_row_date'] 		= 'تاريخ';
 
 // helper
 $_['text_help_edit'] 		= 'انقر هنا لتعديل المسمى';
-
 $_['text_help_count_clicked'] 		  = 'اجمالي  النقرات على الروابط';
+
+
+// TITLE MODEl
+$_['text_help_add_store'] = 'اضافة متجر';
+$_['text_help_edit_store'] = 'تعديل متجر';
