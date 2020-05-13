@@ -21,12 +21,14 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/dev" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="" />
+    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +46,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/Basheir/AvailableOnStores.git" />
+      </set>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -93,6 +102,8 @@
       <workItem from="1589299100864" duration="195000" />
       <workItem from="1589305983012" duration="8328000" />
       <workItem from="1589317055502" duration="4963000" />
+      <workItem from="1589330116520" duration="440000" />
+      <workItem from="1589334673148" duration="30000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -130,7 +141,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠٠٦" />
       <updated>1589329918202</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL؜٠٠٠٠٧" summary="عرض عدد النقرات">
+      <created>1589330310220</created>
+      <option name="number" value="LOCAL؜٠٠٠٠٧" />
+      <option name="presentableId" value="LOCAL؜٠٠٠٠٧" />
+      <updated>1589330310220</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +164,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/dev" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -179,11 +196,11 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="560" y="136" key="#Plugins/0.23.1920.940@0.23.1920.940" timestamp="1589299127822" />
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589329917837">
-      <screen x="0" y="23" width="1920" height="940" />
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589330309961">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589329917837" />
-    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589066206322" />
+    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589330309961" />
     <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589001849878" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
       <screen x="0" y="23" width="1920" height="947" />
