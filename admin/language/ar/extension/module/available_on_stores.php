@@ -5,7 +5,7 @@
  */
 
 
-$_['text_version'] = '1.3.0';
+$_['text_version'] = '2.0.0';
 
 // Heading
 $_['heading_title']    		= 'Available on Stores - متوفر  لدى';
@@ -61,3 +61,4 @@ $_['text_row_date'] 		= 'تاريخ';
 // helper
 $_['text_help_edit'] 		= 'انقر هنا لتعديل المسمى';
 
+$_['text_help_count_clicked'] 		  = 'اجمالي  النقرات على الروابط';

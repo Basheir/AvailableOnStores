@@ -357,7 +357,6 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
         $stores = $this->model_extension_module_available_on_stores->getStores();
 
 
-
         $array_stores = array();
         foreach ($stores as $store ) {
 
@@ -382,24 +381,19 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
             $store_name = $array_stores[$stores_id];
             $clicked = $this->model_extension_module_available_on_stores->getDashboardByProductIDAndStoresID($product_id,$stores_id);
             $product_name  = $this->model_catalog_product->getProduct($product_id)['name'];
-
             $data['rows'][$product_id][$stores_id] = array(	'store_name'=> $store_name	,'clicekd'=> $clicked);
             $data['rows'][$product_id]['name'] = $product_name;
             $data['rows'][$product_id]['url'] = $this->url->link( 'catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product_id, true );
             $data['rows'][$product_id]['product_page'] = '../index.php?route=product/product&product_id='.$product_id;
-            $data['rows'][$product_id]['getChart'] = htmlspecialchars_decode($this->url->link('extension/module/available_on_stores/getChart', 'user_token=' . $this->session->data['user_token'].'&product_id=' . $product_id, 'SSL'));
 
 
         }
 
 
 
-
-
-
         // جلب عدد الجداول
         $count_rows =  $this->model_extension_module_available_on_stores->getCountAllRows();
-
+        $data['countClicked'] =$count_rows;
 
 
 
@@ -422,6 +416,10 @@ class ControllerExtensionModuleAvailableOnStores extends Controller {
 
 
         $this->response->setOutput($this->load->view('extension/module/available_on_stores_dashboard', $data));
+
+
+
+
 
     }
 

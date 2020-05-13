@@ -144,26 +144,9 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 
 
-	/**
-	public function getDashboardAllData() {
-
-	return $this->db->query("Select COUNT(*) from " . DB_PREFIX. "available_on_stores_dashboard GROUP BY  product_id,stores_id " )->rows;
-
-	}
- * /
-
-
-
-
-
-  /**
-   * @return mixed جلب عدد الجداول كاملة
-   */
-	public function getCountAllRows() {
-
-	  $this->db->query("SELECT `product_id`,`stores_id`,`stores_id`,`date`,COUNT(`product_id`) as count from " . DB_PREFIX. "available_on_stores_dashboard group by `product_id`,`stores_id`" )->rows;
-		return $this->db->countAffected();
-
+public function getCountAllRows() {
+    $query = $this->db->query("SELECT COUNT(`product_id`) as count from " . DB_PREFIX. "available_on_stores_dashboard" );
+		return $query->row['count'];
 	}
 
 
@@ -191,7 +174,9 @@ class ModelExtensionModuleAvailableOnStores extends Model {
 
 	public function getDashboardByProductIDAndStoresID($product_id,$stores_id) {
 
-		return  $this->db->query( "SELECT count(`product_id`) as Total FROM  `" . DB_PREFIX . "available_on_stores_dashboard` WHERE `product_id` ='". $this->db->escape($product_id)."' and  `stores_id` ='". $this->db->escape($stores_id) ."';" )->rows[0]['Total'];
+		$query = $this->db->query( "SELECT count(`product_id`) as Total FROM  `" . DB_PREFIX . "available_on_stores_dashboard` WHERE `product_id` ='". $this->db->escape($product_id)."' and  `stores_id` ='". $this->db->escape($stores_id) ."';" )->rows[0]['Total'];
+
+		return $query;
 
 
 	}
