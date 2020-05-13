@@ -28,10 +28,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +131,7 @@
       <workItem from="1589317055502" duration="4963000" />
       <workItem from="1589330116520" duration="440000" />
       <workItem from="1589334673148" duration="30000" />
-      <workItem from="1589385022888" duration="960000" />
+      <workItem from="1589385022888" duration="6961000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -183,7 +181,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠٠٨" />
       <updated>1589335832437</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL؜٠٠٠٠٩" summary="تصحيح تفعيل الموديل">
+      <created>1589386261640</created>
+      <option name="number" value="LOCAL؜٠٠٠٠٩" />
+      <option name="presentableId" value="LOCAL؜٠٠٠٠٩" />
+      <updated>1589386261640</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +224,8 @@
     <MESSAGE value="V1.3.0" />
     <MESSAGE value="V2.0.0&#10;دعم تعدد اللغات" />
     <MESSAGE value="عرض عدد النقرات" />
-    <option name="LAST_COMMIT_MESSAGE" value="عرض عدد النقرات" />
+    <MESSAGE value="تصحيح تفعيل الموديل" />
+    <option name="LAST_COMMIT_MESSAGE" value="تصحيح تفعيل الموديل" />
   </component>
   <component name="WindowStateProjectService">
     <state x="630" y="161" key="#Deployment" timestamp="1589039373843">
@@ -232,11 +237,11 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="560" y="136" key="#Plugins/0.23.1920.940@0.23.1920.940" timestamp="1589299127822" />
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589335832336">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589386260530">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589329917837" />
-    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589330309961" />
+    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589386260530" />
     <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589335832336" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
       <screen x="0" y="23" width="1920" height="947" />
@@ -250,11 +255,11 @@
       <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="469" y="127" key="SettingsEditor/0.23.1920.947@0.23.1920.947" timestamp="1589045022244" />
-    <state x="560" y="228" key="Vcs.Push.Dialog.v2" timestamp="1589335834243">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589386264874">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589329922866" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589066243187" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589386264874" />
     <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589335834243" />
     <state x="100" y="123" width="1720" height="729" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589327033130">
       <screen x="0" y="23" width="1920" height="940" />
@@ -280,11 +285,22 @@
     </state>
     <state x="625" y="138" width="670" height="672" key="search.everywhere.popup/0.23.1920.940@0.23.1920.940" timestamp="1589326942251" />
     <state x="625" y="139" width="670" height="676" key="search.everywhere.popup/0.23.1920.947@0.23.1920.947" timestamp="1589063706878" />
-    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589335897105">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589386300080">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.940@0.23.1920.940" timestamp="1589316777609" />
-    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589066321384" />
+    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589386300080" />
     <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589335897105" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php</url>
+          <line>66</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -5,15 +5,14 @@
  */
 
 
-class ControllerExtensionModuleAvailableOnStores extends Controller{
+class ControllerExtensionModuleAvailableOnStores extends Controller
+{
 
     public function index() {
 
-
-        $statUS = $this->config->get('available_on_stores_status');
+        $statUS = $this->config->get('module_available_on_stores_status');
 
         if ($statUS) {
-
             $this->addClicked();
         }
 
@@ -21,6 +20,10 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
 
 
     public function addClicked() {
+
+
+
+
 
 
         $result = false;
@@ -31,27 +34,47 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
           and isset($this->request->post['stores_id'])
           and !empty($this->request->post['stores_id'])
           and $this->request->post['stores_id'] != 0
+          and $this->request->post['key'] != 0
         ) {
 
             $product_id = (int) $this->request->post['product_id'];
             $stores_id = (int) $this->request->post['stores_id'];
-            $this->db->query("INSERT INTO `".DB_PREFIX
-              ."available_on_stores_dashboard` (`product_id`,`stores_id`) VALUES ($product_id,$stores_id);");
-            $result = $this->db->countAffected();
+
+            $key =  $this->request->post['key'];
+            $session = $this->session->data["AvailableOnStores"][$stores_id][$product_id];
+
+
+//            var_dump($key);
+//            var_dump($session);
+
+
+            if($session==$key){
+
+                $this->db->query("INSERT INTO `".DB_PREFIX ."available_on_stores_dashboard` (`product_id`,`stores_id`) VALUES ($product_id,$stores_id);");
+                $result = $this->db->countAffected();
+
+
+               $this->session->data["AvailableOnStores"][$stores_id][$product_id]=null;
+
+
+            }else{
+                $result = false;
+            }
+
 
         }
 
-
         echo json_encode(['result' => $result]);
-
-
     }
+
+
 
     public function getStoreUrls() {
 
+
         $statUS = $this->config->get('module_available_on_stores_status');
         if (!$statUS) {
-            echo  'AvailableOnStores Module Not enabled';
+            echo 'AvailableOnStores Module Not enabled';
             return null;
         }
 
@@ -68,19 +91,33 @@ class ControllerExtensionModuleAvailableOnStores extends Controller{
                 $id = (int) $this->request->get['product_id'];
 
 
-                $result = $this->db->query("SELECT * FROM `".DB_PREFIX."available_on_stores_urls` `".DB_PREFIX."available_on_stores_urls`
+                $result = $this->db->query("SELECT * FROM `".DB_PREFIX
+                  ."available_on_stores_urls` `".DB_PREFIX."available_on_stores_urls`
 												INNER JOIN  `oc_available_on_stores`
 												ON `".DB_PREFIX
                   ."available_on_stores_urls`.`stores_id` = `".DB_PREFIX."available_on_stores`.
 												`stores_id` WHERE `product_id` = '$id' ")->rows;
 
 
-                $results=array();
+                $results = [];
                 foreach ($result as $value) {
 
-                    $name = json_decode($value['name'],true)[$language_id];
 
-                    $results[] = array('url'=>$value['url'],'stores_id'=>$value['stores_id'],'product_id'=>$value['product_id'],'name'=>$name);
+                   $randomKey = md5(uniqid());
+
+
+
+                    $name = json_decode($value['name'], true)[$language_id];
+
+                    $results[] = ['url'        => $value['url'],
+                                  'stores_id'  => $value['stores_id'],
+                                  'product_id' => $value['product_id'],
+                                  'name'       => $name,
+                                  'key'       => $randomKey,
+                    ];
+
+
+                    $this->session->data["AvailableOnStores"][$value['stores_id']][$value['product_id']]= $randomKey;
 
                 }
 

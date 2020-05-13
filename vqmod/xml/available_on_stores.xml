@@ -8,6 +8,8 @@
     <author>Basheir Hassan</author>
 
 
+<!--    admin Form-->
+
     <file path="admin/view/template/catalog/product_form.twig">
 
         <operation>
@@ -131,10 +133,16 @@
             <search><![CDATA[ {{ footer }} ]]></search>
 
             <add position="before"><![CDATA[
-
-        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
           <script>
           $(document).ready(function () {
+
+
+
+
+
+
+                    $("#button-cart").after('<button type="button" data-loading-text="Loading..." class="btn btn-info available_on_stores_loading">Loading state</button>');
+                    $(".available_on_stores_loading").button('loading');
 
                       spinner(true);
                       setTimeout(function () {
@@ -149,11 +157,11 @@
 
 
                                       if (json.theme == "journal3" || json.theme == "journal2") {
-                                          JournalTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name);
+                                          JournalTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name,json.result[i].key);
                                       }
 
                                       if (json.theme == "default") {
-                                          defualtTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name);
+                                          defualtTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name, json.result[i].key);
                                       }
 
 
@@ -161,25 +169,28 @@
 
 
                               }
+                          }).fail(function() {
+                             $(".available_on_stores_loading").remove();
+
                           });
 
 
-                      }, 3000);
+                      }, 2000);
 
 
                   });
 
 
-                  function JournalTheam(stores_id, url, name) {
-
+                  function JournalTheam(stores_id, url, name,key) {
 
                       var obj = $("#button-cart").clone();
                       obj.attr('id','available_on_stores_'+stores_id);
                       obj.text(name);
                       obj.on('click', function () {
-                          $.post("index.php?route=extension/module/available_on_stores", {
+                          $.post("index.php?route=extension/module/available_on_stores/addClicked", {
                               product_id: "{{ product_id }}",
-                              stores_id: stores_id
+                              stores_id: stores_id,
+                              key:key
                           });
                           obj.removeAttr('disabled');
 
@@ -189,17 +200,20 @@
                        $("div .button-group-page").prepend(obj);
                      // obj.insertBefore(".buttons-wrapper");
                       obj.removeAttr('disabled');
+                      $(".available_on_stores_loading").remove();
+
                   }
 
 
-                  function defualtTheam(stores_id, url, name) {
+                  function defualtTheam(stores_id, url, name,key) {
                       var obj = $("#button-cart").clone();
                       obj.attr('id','available_on_stores_'+stores_id);
                       obj.text(name);
                       obj.on('click', function () {
-                          $.post("index.php?route=extension/module/available_on_stores", {
+                          $.post("index.php?route=extension/module/available_on_stores/addClicked", {
                               product_id: "{{ product_id }}",
-                              stores_id: stores_id
+                              stores_id: stores_id,
+                              key:key
                           });
                           obj.removeAttr('disabled');
                           window.open(url, '_blank');
@@ -207,6 +221,9 @@
 
                       $("#button-cart").after(obj);
                       obj.removeAttr('disabled');
+                      $(".available_on_stores_loading").remove();;
+
+
                   }
 
 
