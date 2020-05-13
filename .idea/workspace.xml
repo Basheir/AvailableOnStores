@@ -19,20 +19,14 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:dev" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/dev" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/ar/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/language/en-gb/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/model/extension/module/available_on_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores_dashboard.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores_dashboard.twig" afterDir="false" />
-    </list>
+    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +92,7 @@
       <workItem from="1589222148344" duration="5933000" />
       <workItem from="1589299100864" duration="195000" />
       <workItem from="1589305983012" duration="8328000" />
-      <workItem from="1589317055502" duration="4757000" />
+      <workItem from="1589317055502" duration="4963000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -130,7 +124,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠٠٥" />
       <updated>1589316728534</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL؜٠٠٠٠٦" summary="عرض عدد النقرات">
+      <created>1589329918202</created>
+      <option name="number" value="LOCAL؜٠٠٠٠٦" />
+      <option name="presentableId" value="LOCAL؜٠٠٠٠٦" />
+      <updated>1589329918202</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +147,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="dev" />
+                        <option value="origin/dev" />
                       </list>
                     </value>
                   </entry>
@@ -166,7 +166,8 @@
     <MESSAGE value="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore" />
     <MESSAGE value="V1.3.0" />
     <MESSAGE value="V2.0.0&#10;دعم تعدد اللغات" />
-    <option name="LAST_COMMIT_MESSAGE" value="V2.0.0&#10;دعم تعدد اللغات" />
+    <MESSAGE value="عرض عدد النقرات" />
+    <option name="LAST_COMMIT_MESSAGE" value="عرض عدد النقرات" />
   </component>
   <component name="WindowStateProjectService">
     <state x="630" y="161" key="#Deployment" timestamp="1589039373843">
@@ -178,10 +179,10 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="560" y="136" key="#Plugins/0.23.1920.940@0.23.1920.940" timestamp="1589299127822" />
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589316727894">
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589329917837">
       <screen x="0" y="23" width="1920" height="940" />
     </state>
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589316727894" />
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589329917837" />
     <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589066206322" />
     <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589001849878" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
@@ -196,10 +197,10 @@
       <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="469" y="127" key="SettingsEditor/0.23.1920.947@0.23.1920.947" timestamp="1589045022244" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589316738452">
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589329922866">
       <screen x="0" y="23" width="1920" height="940" />
     </state>
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589316738452" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589329922866" />
     <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589066243187" />
     <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589001859361" />
     <state x="100" y="123" width="1720" height="729" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589327033130">
