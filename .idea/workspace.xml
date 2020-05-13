@@ -28,6 +28,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,31 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1589335575" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1589335574" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -244,11 +270,11 @@
     </state>
     <state x="625" y="138" width="670" height="672" key="search.everywhere.popup/0.23.1920.940@0.23.1920.940" timestamp="1589326942251" />
     <state x="625" y="139" width="670" height="676" key="search.everywhere.popup/0.23.1920.947@0.23.1920.947" timestamp="1589063706878" />
-    <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589316777609">
-      <screen x="0" y="23" width="1920" height="940" />
+    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589335718802">
+      <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.940@0.23.1920.940" timestamp="1589316777609" />
     <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589066321384" />
-    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589001756244" />
+    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589335718802" />
   </component>
 </project>
