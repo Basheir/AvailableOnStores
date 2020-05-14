@@ -8,8 +8,7 @@
     <author>Basheir Hassan</author>
 
 
-<!--    admin Form-->
-
+    <!--    admin Form-->
     <file path="admin/view/template/catalog/product_form.twig">
 
         <operation>
@@ -83,8 +82,7 @@
 
     </file>
 
-
-<!--     get Stores-->
+    <!--     get Stores-->
     <file name="admin/controller/catalog/product.php">
         <operation error="skip">
             <search position="after"><![CDATA[getForm()]]></search>
@@ -115,8 +113,7 @@
         </operation>
     </file>
 
-
-
+    
     <file path="catalog/controller/product/product.php">
         <operation>
             <search><![CDATA[if ($product_info) {]]></search>
@@ -129,10 +126,7 @@
         </operation>
     </file>
 
-
-
     <!--View Defualt-->
-
 
     <file path="catalog/view/theme/*/template/product/product.twig">
         <operation>
@@ -216,7 +210,6 @@ function defualtTheam(stores_id, url, name, key) {
 				]]></add>
         </operation>
     </file>
-
 
     <!--    add the panel-->
 
