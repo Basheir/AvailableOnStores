@@ -26,9 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
+    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="تنشيط">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/template/extension/module/available_on_stores.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +133,9 @@
       <workItem from="1589385022888" duration="6961000" />
       <workItem from="1589394681203" duration="208000" />
       <workItem from="1589397596866" duration="5074000" />
-      <workItem from="1589426898550" duration="45000" />
+      <workItem from="1589426898550" duration="89000" />
+      <workItem from="1589427370284" duration="699000" />
+      <workItem from="1589428650725" duration="881000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -201,7 +203,13 @@
       <option name="presentableId" value="LOCAL؜٠٠٠١١" />
       <updated>1589426132454</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL؜٠٠٠١٢" summary="اضافة تلعيمات">
+      <created>1589426952993</created>
+      <option name="number" value="LOCAL؜٠٠٠١٢" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٢" />
+      <updated>1589426952993</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,11 +261,11 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="560" y="136" key="#Plugins/0.23.1920.940@0.23.1920.940" timestamp="1589299127822" />
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589426131890">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589429519621">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589394727491" />
-    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589386260530" />
+    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589429519621" />
     <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589426131890" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
       <screen x="0" y="23" width="1920" height="947" />
@@ -271,22 +279,22 @@
       <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="469" y="127" key="SettingsEditor/0.23.1920.947@0.23.1920.947" timestamp="1589045022244" />
-    <state x="560" y="228" key="Vcs.Push.Dialog.v2" timestamp="1589426135067">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589426954417">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589394730339" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589386264874" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589426954417" />
     <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589426135067" />
     <state x="100" y="123" width="1720" height="729" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589327033130">
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="100" y="123" width="1720" height="729" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1920.940@0.23.1920.940" timestamp="1589327033130" />
     <state x="100" y="123" width="1720" height="730" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1920.942@0.23.1920.942" timestamp="1589131530662" />
-    <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589217237667">
-      <screen x="0" y="23" width="1920" height="940" />
+    <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589429253481">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1920.940@0.23.1920.940" timestamp="1589217237667" />
-    <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1920.942@0.23.1920.942" timestamp="1589164833783" />
+    <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1920.942@0.23.1920.942" timestamp="1589429253481" />
     <state x="516" y="177" width="849" height="596" key="find.popup" timestamp="1589385923649">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
@@ -301,11 +309,11 @@
     </state>
     <state x="625" y="138" width="670" height="672" key="search.everywhere.popup/0.23.1920.940@0.23.1920.940" timestamp="1589326942251" />
     <state x="625" y="139" width="670" height="676" key="search.everywhere.popup/0.23.1920.947@0.23.1920.947" timestamp="1589063706878" />
-    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589426176966">
-      <screen x="0" y="23" width="1920" height="947" />
+    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589426980345">
+      <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.940@0.23.1920.940" timestamp="1589394776389" />
-    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589386300080" />
+    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589426980345" />
     <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589426176966" />
   </component>
   <component name="XDebuggerManager">

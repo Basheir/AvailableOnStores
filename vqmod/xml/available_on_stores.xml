@@ -3,7 +3,7 @@
     <name>available_on_stores</name>
     <code>available_on_stores</code>
     <id>available_on_stores</id>
-    <version>1.3.0</version>
+    <version>2.0.0</version>
     <vqmver>2.5.1</vqmver>
     <author>Basheir Hassan</author>
 
@@ -84,7 +84,7 @@
     </file>
 
 
-    // get Stores
+<!--     get Stores-->
     <file name="admin/controller/catalog/product.php">
         <operation error="skip">
             <search position="after"><![CDATA[getForm()]]></search>
@@ -111,138 +111,111 @@
            $data['language_id'] =$this->config->get('config_language_id');
 
 
-
-
             ]]></add>
         </operation>
     </file>
 
 
+
+    <file path="catalog/controller/product/product.php">
+        <operation>
+            <search><![CDATA[if ($product_info) {]]></search>
+            <add position="after"><![CDATA[
+
+	        $this->load->model('setting/setting');
+            $data['available_on_stores_status'] = $this->config->get('module_available_on_stores_status');
+
+			]]></add>
+        </operation>
+    </file>
+
+
+
     <!--View Defualt-->
+
 
     <file path="catalog/view/theme/*/template/product/product.twig">
         <operation>
             <search><![CDATA[ {{ footer }} ]]></search>
 
             <add position="before"><![CDATA[
-          <script>
-          $(document).ready(function () {
 
 
+            {% if available_on_stores_status %}
+
+  <script>
+
+$(document).ready(function () {
+    $("#button-cart").after('<button type="button" data-loading-text="Loading..." class="btn btn-info available_on_stores_loading">Loading state</button>');
+    $(".available_on_stores_loading").button('loading');
+
+    setTimeout(function () {
+
+        $.getJSON("index.php?route=extension/module/available_on_stores/getStoreUrls", {product_id: "{{ product_id }}"}, function (json) {
+            if (json.result != false) {
+                jQuery.each(json.result, function (i, val) {
+                    if (json.theme == "journal3" || json.theme == "journal2") {
+                        JournalTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name, json.result[i].key);
+                    }
+                    if (json.theme == "default") {
+                        defualtTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name, json.result[i].key);
+                    }
+                });
+            }
+        }).fail(function () {
+            $(".available_on_stores_loading").remove();
+        });
+
+    }, 2000);
+});
 
 
+function JournalTheam(stores_id, url, name, key) {
+    var obj = $("#button-cart").clone();
+    obj.attr('id', 'available_on_stores_' + stores_id);
+    obj.text(name);
+    obj.on('click', function () {
+        $.post("index.php?route=extension/module/available_on_stores/addClicked", {
+            product_id: "{{ product_id }}",
+            stores_id: stores_id,
+            key: key
+        });
+        obj.removeAttr('disabled');
 
+        window.open(url, '_blank');
+    });
 
-                    $("#button-cart").after('<button type="button" data-loading-text="Loading..." class="btn btn-info available_on_stores_loading">Loading state</button>');
-                    $(".available_on_stores_loading").button('loading');
+    $("div .button-group-page").prepend(obj);
+    obj.removeAttr('disabled');
+    $(".available_on_stores_loading").remove();
 
-                      spinner(true);
-                      setTimeout(function () {
+}
 
+function defualtTheam(stores_id, url, name, key) {
+    var obj = $("#button-cart").clone();
+    obj.attr('id', 'available_on_stores_' + stores_id);
+    obj.text(name);
+    obj.on('click', function () {
+        $.post("index.php?route=extension/module/available_on_stores/addClicked", {
+            product_id: "{{ product_id }}",
+            stores_id: stores_id,
+            key: key
+        });
+        obj.removeAttr('disabled');
+        window.open(url, '_blank');
+    });
+    $("#button-cart").after(obj);
+    obj.removeAttr('disabled');
+    $(".available_on_stores_loading").remove();
 
-                          $.getJSON("index.php?route=extension/module/available_on_stores/getStoreUrls", {product_id: "{{ product_id }}"}, function (json) {
+}
 
-                                spinner(false);
-                              if (json.result != false) {
-
-                                  jQuery.each(json.result, function (i, val) {
-
-
-                                      if (json.theme == "journal3" || json.theme == "journal2") {
-                                          JournalTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name,json.result[i].key);
-                                      }
-
-                                      if (json.theme == "default") {
-                                          defualtTheam(json.result[i].stores_id, json.result[i].url, json.result[i].name, json.result[i].key);
-                                      }
-
-
-                                  });
-
-
-                              }
-                          }).fail(function() {
-                             $(".available_on_stores_loading").remove();
-
-                          });
-
-
-                      }, 2000);
-
-
-                  });
-
-
-                  function JournalTheam(stores_id, url, name,key) {
-
-                      var obj = $("#button-cart").clone();
-                      obj.attr('id','available_on_stores_'+stores_id);
-                      obj.text(name);
-                      obj.on('click', function () {
-                          $.post("index.php?route=extension/module/available_on_stores/addClicked", {
-                              product_id: "{{ product_id }}",
-                              stores_id: stores_id,
-                              key:key
-                          });
-                          obj.removeAttr('disabled');
-
-                          window.open(url, '_blank');
-                      });
-
-                       $("div .button-group-page").prepend(obj);
-                     // obj.insertBefore(".buttons-wrapper");
-                      obj.removeAttr('disabled');
-                      $(".available_on_stores_loading").remove();
-
-                  }
-
-
-                  function defualtTheam(stores_id, url, name,key) {
-                      var obj = $("#button-cart").clone();
-                      obj.attr('id','available_on_stores_'+stores_id);
-                      obj.text(name);
-                      obj.on('click', function () {
-                          $.post("index.php?route=extension/module/available_on_stores/addClicked", {
-                              product_id: "{{ product_id }}",
-                              stores_id: stores_id,
-                              key:key
-                          });
-                          obj.removeAttr('disabled');
-                          window.open(url, '_blank');
-                      });
-
-                      $("#button-cart").after(obj);
-                      obj.removeAttr('disabled');
-                      $(".available_on_stores_loading").remove();;
-
-
-                  }
-
-
-
-                  function spinner(isShow){
-
-                  if(isShow){
-                    $("div .button-group-page").prepend('<i id="available_on_stores_spinner" class="fa fa-spinner fa-spin" style="font-size:24px"></i>');
-
-                  }
-                  else {
-                  $("#available_on_stores_spinner").remove();
-                  }
-
-                  }
-
-
-                    </script>
-
+</script>
+{% endif %}
 
 				]]></add>
         </operation>
     </file>
-
-
-
-
 
 
     <!--    add the panel-->
