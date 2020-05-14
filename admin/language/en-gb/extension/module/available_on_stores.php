@@ -65,3 +65,7 @@ $_['text_help_count_clicked'] 		  = 'count clicked Url';
 $_['text_help_add_store'] = 'Add Store';
 $_['text_help_edit_store'] = 'Edit Store';
 
+
+$_['text_help_tabe_help'] = 'Help';
+$_['text_help_tabe_home'] = 'Stores';
+

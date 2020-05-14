@@ -26,6 +26,8 @@
                 <?php } ?>
             </ul>
         </div>
+
+
     </div>
 
 
@@ -53,52 +55,134 @@
                     {% endif %}
 
 
-                    <div class="container col-lg-12 col-md-12">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">{{ text_help_tabe_home }}</a></li>
+                        <li><a data-toggle="tab" href="#tabHelp">{{ text_help_tabe_help }}</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
 
 
-                        <div class="container">
-                            <div class="row">
 
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <button type="button" id="addStore" class="btn btn-primary" data-toggle="modal" data-target="#addStoreModal" data-whatever="addstore">{{ text_input_store }}</button>
+                            <div class="container col-lg-12 col-md-12">
+
+
+                                <div class="container">
+                                    <div class="row">
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <button type="button" id="addStore" class="btn btn-primary" data-toggle="modal" data-target="#addStoreModal" data-whatever="addstore">{{ text_input_store }}</button>
+
+                                            </div>
+                                        </div>
+
 
                                     </div>
                                 </div>
 
-
+                                <hr>
                             </div>
-                        </div>
-
-                        <hr>
-                    </div>
 
 
 
                             {#                    بيانات المتاجر#}
 
-                    <div class="container">
-                        <div id="alertJson" role="alert"></div>
+                            <div class="container">
+                                <div id="alertJson" role="alert"></div>
 
 
 
 
-                        <table id="tableDateStore" class="table table-bordered table-hover" style="width:100%">
-                            <thead>
-                                <th>{{ text_row_store_id }}</th>
-                                {% for key,val in languages %}
-                                <th>{{ val.code }}</th>
-                                {% endfor %}
-                                <th>{{ text_row_date }}</th>
-                                <th>{{ text_row_delete }}</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                                <table id="tableDateStore" class="table table-bordered table-hover" style="width:100%">
+                                    <thead>
+                                    <th>{{ text_row_store_id }}</th>
+                                    {% for key,val in languages %}
+                                        <th>{{ val.code }}</th>
+                                    {% endfor %}
+                                    <th>{{ text_row_date }}</th>
+                                    <th>{{ text_row_delete }}</th>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
 
-                        <div class="border border-success" id="loadingMessage"><h3 class="text-center">Loading.....</h3></div>
+                                <div class="border border-success" id="loadingMessage"><h3 class="text-center">Loading.....</h3></div>
 
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div id="tabHelp" class="tab-pane fade">
+
+
+
+
+                                <div class="row">
+                                    <div class="col-md-8">
+
+                                        <blockquote>
+                                            <p>تساعدك هذه الاضافة على القيام بتنبيه عميلك انه هذا المنتج متوفر في متاجر  اخرى عندما تكون انت تبيع نفس المنتج في Amazon او سوق كوم  الخ….</p>
+
+                                            <dl>
+                                                <dd>تاكد من تنشيط الاضافة من نفس صفحة الاضافة</dd>
+                                                <dd>قم باضافة المتاجر وبامكانك الاضافة لاحقا  كما بامكانك اضافة الرابط للمتجر الجديد عند تعديل المنتج</dd>
+                                                <dd>اضافة المتجر يدعم تعدد اللغات لديك فمثلا لو كان المتجر انكليزي + عربي ستظهر لك مربع لكل لغة ليتم عرضها للعميل</dd>
+                                                <strong>عند حذف اي متجر يتم حذف البيانات التابعه له مثلا عدد النقرات</strong>
+                                                <dd>يتم احتساب النقرات مرة واحد عن تحميل الصفحة والضغط على الزر لكل واحد</dd>
+                                                <dd>...</dd>
+                                                <dd>...</dd>
+                                                <dd>...</dd>
+                                                <dd>...</dd>
+                                                <dd>تابع الفيديو التعليمي اسفل هذه الصفحة</dd>
+                                            </dl>
+
+                                            <footer>هذه الاضافة مفتوحة المصدر لك الحرية باستخدامها <cite title="Source Title"></cite></footer>
+                                        </blockquote>
+
+
+
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item list-group-item-success">اللهم لا علم لنا إلا ما علمتنا ، إنك أنت العليم الحكيم، اللهم علمنا ما ينفعنا ، وانفعنا بما علمتنا ، وزدنا علما</li>
+                                            <li class="list-group-item text-right">
+                                                <span class="text-right">BasheirHassan</span>
+                                                <a href="https://twitter.com/basheirhassan?lang=en" target="_blank" class="twitter"><i class="fa fa-twitter fa-3x"></i></a>
+
+                                            </li>
+                                            <li class="list-group-item text-right">
+                                                <span class="text-right">BasheirHassan</span>
+                                                <a href="https://www.youtube.com/watch?v=-imlCMmdO-k&feature=emb_title" target="_blank" class="youtube"><i class="fa fa-youtube fa-3x"></i></a>
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+                                    <div class="col-md-12">
+
+                                        <iframe width="600" height="400" src="https://www.youtube.com/embed/-imlCMmdO-k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+                                    </div>
+                                </div>
+
+
+
+                        </div>
 
                     </div>
+
+
+
+
+
 
                     <hr>
 {#                    AAA -  {{ dump(module_available_on_stores_status) }}#}
