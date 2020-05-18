@@ -7,9 +7,9 @@
     <vqmver>2.5.1</vqmver>
     <author>Basheir Hassan</author>
 
-
     <!--    admin Form-->
-    <file path="admin/view/template/catalog/product_form.twig">
+
+    <file name="admin/view/template/catalog/product_form.twig">
 
         <operation>
             <search><![CDATA[
@@ -37,10 +37,7 @@
                   <tbody>
                   <tr>
 
-
                 {% for key,val in rows_available_on_stores %}
-
-
 
                     {% if rows_available_on_stores|length == 0 %}
 
@@ -50,15 +47,7 @@
 
                     <div class="form-group">
 
-
-
-
-
-
                         <label class="col-sm-2 control-label" for="input-location"> URL - {{rows_available_on_stores_name[val.stores_id][language_id]}}</label>
-
-
-
                          <div class="col-sm-10">
                          <input type="text" name="available-on-stores-input[{{val.stores_id}}]" value="{{rows_available_on_stores_urls[val.stores_id]}}" placeholder=" URL:{{rows_available_on_stores_name[val.stores_id][language_id]}}" id="input-location" class="form-control">
 
@@ -81,12 +70,15 @@
 
 
     </file>
-
     <!--     get Stores-->
-    <file name="admin/controller/catalog/product.php">
-        <operation error="skip">
-            <search position="after"><![CDATA[getForm()]]></search>
+    <file path="admin/controller/catalog/product.php">
+        <operation>
+            <search position="after"><![CDATA[protected function getForm() {]]></search>
             <add><![CDATA[
+
+
+
+            //================== available_on_stores =============//
 
         $this->load->model('extension/module/available_on_stores');
 
@@ -109,26 +101,32 @@
            $data['language_id'] =$this->config->get('config_language_id');
 
 
+           //================== available_on_stores =============//
+
+
             ]]></add>
         </operation>
     </file>
-
-    
-    <file path="catalog/controller/product/product.php">
+    <!--     add Status-->
+    <file name="catalog/controller/product/product.php">
         <operation>
             <search><![CDATA[if ($product_info) {]]></search>
             <add position="after"><![CDATA[
 
+            //================== available_on_stores =============//
+
+
 	        $this->load->model('setting/setting');
             $data['available_on_stores_status'] = $this->config->get('module_available_on_stores_status');
+
+
+            //================== available_on_stores =============//
 
 			]]></add>
         </operation>
     </file>
-
     <!--View Defualt-->
-
-    <file path="catalog/view/theme/*/template/product/product.twig">
+    <file name="catalog/view/theme/*/template/product/product.twig">
         <operation>
             <search><![CDATA[ {{ footer }} ]]></search>
 
@@ -210,13 +208,14 @@ function defualtTheam(stores_id, url, name, key) {
 				]]></add>
         </operation>
     </file>
-
     <!--    add the panel-->
-
     <file name="admin/controller/common/column_left.php">
         <operation error="skip">
-            <search position="after"><![CDATA[if ($marketplace) {]]></search>
+            <search position="before"><![CDATA[if ($marketplace) {]]></search>
             <add><![CDATA[
+
+        //================== available_on_stores =============//
+
             if ($this->user->hasPermission('access', 'extension/module/available_on_stores')) {
   	            $marketplace[] = array(
 					'name'	   => 'Available on Stores',
@@ -224,10 +223,11 @@ function defualtTheam(stores_id, url, name, key) {
 					'children' => array()
 				);
 			}
+		//================== available_on_stores =============//
+
 
             ]]></add>
         </operation>
     </file>
-
 
 </modification>
