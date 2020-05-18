@@ -70,3 +70,5 @@ $_['text_help_edit_store'] = 'تعديل متجر';
 
 $_['text_help_tabe_help'] = 'مساعدة';
 $_['text_help_tabe_home'] = 'متاجر';
+
+

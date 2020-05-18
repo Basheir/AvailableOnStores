@@ -37,13 +37,11 @@
                   <tbody>
                   <tr>
 
-                {% for key,val in rows_available_on_stores %}
-
                     {% if rows_available_on_stores|length == 0 %}
-
-                   <div class="alert alert-danger" role="alert">please Add stores</div>
-
+                        <div class="alert alert-info" role="alert">Please Add Stores</div>
                     {% endif %}
+
+                {% for key,val in rows_available_on_stores %}
 
                     <div class="form-group">
 
