@@ -17,7 +17,7 @@
 				]]></search>
             <add position="after"><![CDATA[
 
-            <li><a href="#available_on_stores" data-toggle="tab">{{available_on_stores_tab_title}}</a></li>
+            <li ><a href="#available_on_stores" data-toggle="tab">{{available_on_stores_tab_title}}</a></li>
 				]]></add>
         </operation>
 
@@ -99,6 +99,7 @@
            $data['language_id'] =$this->config->get('config_language_id');
 
 
+
            //================== available_on_stores =============//
 
 
@@ -153,6 +154,8 @@ $(document).ready(function () {
                 });
             }
         }).fail(function () {
+            $(".available_on_stores_loading").remove();
+        }).success(function() {
             $(".available_on_stores_loading").remove();
         });
 

@@ -26,7 +26,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
+    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="تعديل ملف avalbelonstores.xml">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" afterDir="false" />
     </list>
@@ -47,6 +48,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
@@ -95,7 +97,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/language/en-gb/extension/module" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
@@ -137,6 +140,9 @@
       <workItem from="1589427370284" duration="699000" />
       <workItem from="1589428650725" duration="1058000" />
       <workItem from="1589430537170" duration="144000" />
+      <workItem from="1589815551056" duration="2044000" />
+      <workItem from="1589818181487" duration="863000" />
+      <workItem from="1590087168148" duration="19000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -216,7 +222,25 @@
       <option name="presentableId" value="LOCAL؜٠٠٠١٣" />
       <updated>1589429588704</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL؜٠٠٠١٤" summary="تعديل ملف avalbelonstores.xml">
+      <created>1589815670716</created>
+      <option name="number" value="LOCAL؜٠٠٠١٤" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٤" />
+      <updated>1589815670716</updated>
+    </task>
+    <task id="LOCAL؜٠٠٠١٥" summary="تعديل ملف avalbelonstores.xml">
+      <created>1589816995520</created>
+      <option name="number" value="LOCAL؜٠٠٠١٥" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٥" />
+      <updated>1589816995520</updated>
+    </task>
+    <task id="LOCAL؜٠٠٠١٦" summary="تعديل ملف avalbelonstores.xml">
+      <created>1589817567677</created>
+      <option name="number" value="LOCAL؜٠٠٠١٦" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٦" />
+      <updated>1589817567677</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +281,8 @@
     <MESSAGE value="تحسين تحميل في صفحة المنتج" />
     <MESSAGE value="اضافة تلعيمات" />
     <MESSAGE value="تفعيل او الغاء التفعيل" />
-    <option name="LAST_COMMIT_MESSAGE" value="تفعيل او الغاء التفعيل" />
+    <MESSAGE value="تعديل ملف avalbelonstores.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="تعديل ملف avalbelonstores.xml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="630" y="161" key="#Deployment" timestamp="1589039373843">
@@ -269,12 +294,16 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="560" y="136" key="#Plugins/0.23.1920.940@0.23.1920.940" timestamp="1589299127822" />
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589429588417">
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589817567550">
+      <screen x="0" y="23" width="1920" height="940" />
+    </state>
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589817567550" />
+    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589816995387" />
+    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589426131890" />
+    <state x="159" y="60" key="DiffContextDialog" timestamp="1589816267929">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589394727491" />
-    <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589429588417" />
-    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589426131890" />
+    <state x="159" y="60" key="DiffContextDialog/0.23.1920.942@0.23.1920.942" timestamp="1589816267929" />
     <state x="192" y="99" key="MergeDialog" timestamp="1589001439919">
       <screen x="0" y="23" width="1920" height="947" />
     </state>
@@ -287,11 +316,19 @@
       <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="469" y="127" key="SettingsEditor/0.23.1920.947@0.23.1920.947" timestamp="1589045022244" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589429590505">
+    <state x="780" y="369" key="VCS.ChangelistChooser" timestamp="1589815993713">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589394730339" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589429590505" />
+    <state x="780" y="369" key="VCS.ChangelistChooser/0.23.1920.942@0.23.1920.942" timestamp="1589815993713" />
+    <state x="798" y="364" key="VCS.EditChangelistDialog" timestamp="1589820065079">
+      <screen x="0" y="23" width="1920" height="940" />
+    </state>
+    <state x="798" y="364" key="VCS.EditChangelistDialog/0.23.1920.940@0.23.1920.940" timestamp="1589820065079" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589817568905">
+      <screen x="0" y="23" width="1920" height="940" />
+    </state>
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589817568905" />
+    <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589816997348" />
     <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589426135067" />
     <state x="100" y="123" width="1720" height="730" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589430680996">
       <screen x="0" y="23" width="1920" height="942" />
@@ -303,11 +340,19 @@
     </state>
     <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1920.940@0.23.1920.940" timestamp="1589217237667" />
     <state x="579" y="105" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1920.942@0.23.1920.942" timestamp="1589429253481" />
+    <state x="763" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589817983438">
+      <screen x="0" y="23" width="1920" height="940" />
+    </state>
+    <state x="763" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.940@0.23.1920.940" timestamp="1589817983438" />
     <state x="516" y="177" width="849" height="596" key="find.popup" timestamp="1589385923649">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
     <state x="516" y="177" width="849" height="595" key="find.popup/0.23.1920.940@0.23.1920.940" timestamp="1589327054927" />
     <state x="516" y="177" width="849" height="596" key="find.popup/0.23.1920.942@0.23.1920.942" timestamp="1589385923649" />
+    <state x="719" y="394" key="git4idea.ui.GitStashDialog" timestamp="1589816347512">
+      <screen x="0" y="23" width="1920" height="942" />
+    </state>
+    <state x="719" y="394" key="git4idea.ui.GitStashDialog/0.23.1920.942@0.23.1920.942" timestamp="1589816347512" />
     <state x="625" y="224" key="run.anything.popup" timestamp="1589315225448">
       <screen x="0" y="23" width="1920" height="940" />
     </state>
@@ -317,11 +362,11 @@
     </state>
     <state x="625" y="138" width="670" height="672" key="search.everywhere.popup/0.23.1920.940@0.23.1920.940" timestamp="1589326942251" />
     <state x="625" y="139" width="670" height="676" key="search.everywhere.popup/0.23.1920.947@0.23.1920.947" timestamp="1589063706878" />
-    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589429680456">
-      <screen x="0" y="23" width="1920" height="942" />
+    <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589817593415">
+      <screen x="0" y="23" width="1920" height="940" />
     </state>
-    <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.940@0.23.1920.940" timestamp="1589394776389" />
-    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589429680456" />
+    <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.940@0.23.1920.940" timestamp="1589817593415" />
+    <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589817192523" />
     <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589426176966" />
   </component>
   <component name="XDebuggerManager">
