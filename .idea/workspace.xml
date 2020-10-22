@@ -26,10 +26,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="تعديل ملف avalbelonstores.xml">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    <list default="true" id="2b4732db-111a-4c81-af81-8afbddc04569" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vqmod/xml/available_on_stores.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/controller/extension/module/available_on_stores.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +50,7 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -100,6 +100,7 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -112,6 +113,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -142,7 +144,12 @@
       <workItem from="1589430537170" duration="144000" />
       <workItem from="1589815551056" duration="2044000" />
       <workItem from="1589818181487" duration="863000" />
-      <workItem from="1590087168148" duration="19000" />
+      <workItem from="1590087168148" duration="67000" />
+      <workItem from="1590254218644" duration="45000" />
+      <workItem from="1590374236128" duration="916000" />
+      <workItem from="1590377294053" duration="1902000" />
+      <workItem from="1590550386549" duration="638000" />
+      <workItem from="1603329306930" duration="74000" />
     </task>
     <task id="LOCAL؜٠٠٠٠١" summary="Merge branch 'dev' of https://github.com/Basheir/AvailableOnStores into dev&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;.gitignore">
       <created>1589001850060</created>
@@ -240,11 +247,17 @@
       <option name="presentableId" value="LOCAL؜٠٠٠١٦" />
       <updated>1589817567677</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL؜٠٠٠١٧" summary="تعديل ملف avalbelonstores.xml">
+      <created>1590087202570</created>
+      <option name="number" value="LOCAL؜٠٠٠١٧" />
+      <option name="presentableId" value="LOCAL؜٠٠٠١٧" />
+      <updated>1590087202570</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -294,12 +307,12 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="560" y="136" key="#Plugins/0.23.1920.940@0.23.1920.940" timestamp="1589299127822" />
-    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1589817567550">
-      <screen x="0" y="23" width="1920" height="940" />
+    <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2" timestamp="1590087202345">
+      <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="534" y="23" width="993" height="940" key="CommitChangelistDialog2/0.23.1920.940@0.23.1920.940" timestamp="1589817567550" />
     <state x="534" y="23" key="CommitChangelistDialog2/0.23.1920.942@0.23.1920.942" timestamp="1589816995387" />
-    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1589426131890" />
+    <state x="534" y="23" width="993" height="947" key="CommitChangelistDialog2/0.23.1920.947@0.23.1920.947" timestamp="1590087202345" />
     <state x="159" y="60" key="DiffContextDialog" timestamp="1589816267929">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
@@ -324,12 +337,12 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="798" y="364" key="VCS.EditChangelistDialog/0.23.1920.940@0.23.1920.940" timestamp="1589820065079" />
-    <state x="560" y="227" key="Vcs.Push.Dialog.v2" timestamp="1589817568905">
-      <screen x="0" y="23" width="1920" height="940" />
+    <state x="560" y="228" key="Vcs.Push.Dialog.v2" timestamp="1590087203959">
+      <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.940@0.23.1920.940" timestamp="1589817568905" />
     <state x="560" y="227" key="Vcs.Push.Dialog.v2/0.23.1920.942@0.23.1920.942" timestamp="1589816997348" />
-    <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1589426135067" />
+    <state x="560" y="228" key="Vcs.Push.Dialog.v2/0.23.1920.947@0.23.1920.947" timestamp="1590087203959" />
     <state x="100" y="123" width="1720" height="730" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589430680996">
       <screen x="0" y="23" width="1920" height="942" />
     </state>
@@ -344,10 +357,10 @@
       <screen x="0" y="23" width="1920" height="940" />
     </state>
     <state x="763" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.940@0.23.1920.940" timestamp="1589817983438" />
-    <state x="516" y="177" width="849" height="596" key="find.popup" timestamp="1589385923649">
-      <screen x="0" y="23" width="1920" height="942" />
+    <state x="516" y="177" width="849" height="595" key="find.popup" timestamp="1590549582751">
+      <screen x="0" y="23" width="1920" height="940" />
     </state>
-    <state x="516" y="177" width="849" height="595" key="find.popup/0.23.1920.940@0.23.1920.940" timestamp="1589327054927" />
+    <state x="516" y="177" width="849" height="595" key="find.popup/0.23.1920.940@0.23.1920.940" timestamp="1590549582751" />
     <state x="516" y="177" width="849" height="596" key="find.popup/0.23.1920.942@0.23.1920.942" timestamp="1589385923649" />
     <state x="719" y="394" key="git4idea.ui.GitStashDialog" timestamp="1589816347512">
       <screen x="0" y="23" width="1920" height="942" />
@@ -362,12 +375,12 @@
     </state>
     <state x="625" y="138" width="670" height="672" key="search.everywhere.popup/0.23.1920.940@0.23.1920.940" timestamp="1589326942251" />
     <state x="625" y="139" width="670" height="676" key="search.everywhere.popup/0.23.1920.947@0.23.1920.947" timestamp="1589063706878" />
-    <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1589817593415">
-      <screen x="0" y="23" width="1920" height="940" />
+    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog" timestamp="1590087228441">
+      <screen x="0" y="23" width="1920" height="947" />
     </state>
     <state x="722" y="349" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.940@0.23.1920.940" timestamp="1589817593415" />
     <state x="722" y="350" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.942@0.23.1920.942" timestamp="1589817192523" />
-    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1589426176966" />
+    <state x="722" y="352" key="zielu.gittoolbox.ui.GitPushTagsDialog/0.23.1920.947@0.23.1920.947" timestamp="1590087228441" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

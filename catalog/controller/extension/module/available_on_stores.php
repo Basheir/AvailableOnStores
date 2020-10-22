@@ -29,12 +29,12 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
         $result = false;
 
         if (isset($this->request->post['product_id'])
-          and !empty($this->request->post['product_id'])
-          and $this->request->post['product_id'] != 0
-          and isset($this->request->post['stores_id'])
-          and !empty($this->request->post['stores_id'])
-          and $this->request->post['stores_id'] != 0
-          and $this->request->post['key'] != 0
+            and !empty($this->request->post['product_id'])
+            and $this->request->post['product_id'] != 0
+            and isset($this->request->post['stores_id'])
+            and !empty($this->request->post['stores_id'])
+            and $this->request->post['stores_id'] != 0
+            and $this->request->post['key'] != 0
         ) {
 
             $product_id = (int) $this->request->post['product_id'];
@@ -44,8 +44,8 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
             $session = $this->session->data["AvailableOnStores"][$stores_id][$product_id];
 
 
-//            var_dump($key);
-//            var_dump($session);
+            //            var_dump($key);
+            //            var_dump($session);
 
 
             if($session==$key){
@@ -54,7 +54,7 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
                 $result = $this->db->countAffected();
 
 
-               $this->session->data["AvailableOnStores"][$stores_id][$product_id]=null;
+                $this->session->data["AvailableOnStores"][$stores_id][$product_id]=null;
 
 
             }else{
@@ -84,26 +84,22 @@ class ControllerExtensionModuleAvailableOnStores extends Controller
 
         if ($statUS) {
             if (isset($this->request->get['product_id'])
-              and !empty($this->request->get['product_id'])
-              and $this->request->get['product_id'] != 0
+                and !empty($this->request->get['product_id'])
+                and $this->request->get['product_id'] != 0
             ) {
 
                 $id = (int) $this->request->get['product_id'];
 
 
-                $result = $this->db->query("SELECT * FROM `".DB_PREFIX
-                  ."available_on_stores_urls` `".DB_PREFIX."available_on_stores_urls`
-												INNER JOIN  `oc_available_on_stores`
-												ON `".DB_PREFIX
-                  ."available_on_stores_urls`.`stores_id` = `".DB_PREFIX."available_on_stores`.
-												`stores_id` WHERE `product_id` = '$id' ")->rows;
+                $result = $this->db->query("SELECT * FROM ".DB_PREFIX."available_on_stores_urls"." INNER JOIN  ".DB_PREFIX."available_on_stores ON ".DB_PREFIX."available_on_stores_urls.stores_id=".DB_PREFIX."available_on_stores.stores_id WHERE product_id = '$id' ")->rows;
+
 
 
                 $results = [];
                 foreach ($result as $value) {
 
 
-                   $randomKey = md5(uniqid());
+                    $randomKey = md5(uniqid());
 
 
 
